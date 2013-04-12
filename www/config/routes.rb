@@ -1,4 +1,7 @@
 Storehouse::Application.routes.draw do
+  resources :data_sources
+
+
   authenticated :user do
     root :to => 'home#index'
   end
