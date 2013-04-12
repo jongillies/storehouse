@@ -80,7 +80,7 @@ end
 
 When /^I sign up with valid user data$/ do
   create_visitor
-  sign_up
+  #sign_up
 end
 
 When /^I sign up with an invalid email$/ do
@@ -148,12 +148,12 @@ end
 ### THEN ###
 Then /^I should be signed in$/ do
   page.should have_content 'Logout'
-  page.should_not have_content 'Sign up'
+  #page.should_not have_content 'Sign up'
   page.should_not have_content 'Login'
 end
 
 Then /^I should be signed out$/ do
-  page.should have_content 'Sign up'
+  #page.should have_content 'Sign up'
   page.should have_content 'Login'
   page.should_not have_content 'Logout'
 end
@@ -166,9 +166,9 @@ Then /^I see a successful sign in message$/ do
   page.should have_content 'Signed in successfully.'
 end
 
-Then /^I should see a successful sign up message$/ do
-  page.should have_content 'Welcome! You have signed up successfully.'
-end
+#Then /^I should see a successful sign up message$/ do
+#  page.should have_content 'Welcome! You have signed up successfully.'
+#end
 
 Then /^I should see an invalid email message$/ do
   page.should have_content 'is invalid'
