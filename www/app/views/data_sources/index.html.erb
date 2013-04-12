@@ -1,0 +1,31 @@
+<%- model_class = DataSource -%>
+<div class="page-header">
+  <h1><%= t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+    <th><%= model_class.human_attribute_name(:active) %></th>
+    <th><%= model_class.human_attribute_name(:contact) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @data_sources.each do |data_source| %>
+      <tr>
+        <td><%= link_to data_source.name, data_source_path(data_source) %></td>
+        <td><%= data_source.active %></td>
+        <td><%= data_source.contact %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<% if user_signed_in? %>
+    <% if current_user.has_role? :admin %>
+
+        <%= link_to t('.new', :default => t("helpers.links.new")),
+                    new_data_source_path,
+                    :class => 'btn btn-primary' %>
+    <% end %>
+<% end %>
