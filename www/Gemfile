@@ -30,5 +30,5 @@ gem 'kaminari', '>= 0.14.1' # Pagination
 gem 'ransack', '>= 0.7.2'   # Search, sortable columns
 
 gem 'therubyracer'
-gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'less-rails'            #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
