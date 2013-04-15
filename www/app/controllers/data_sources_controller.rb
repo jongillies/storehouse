@@ -2,7 +2,8 @@ class DataSourcesController < ApplicationController
   # GET /data_sources
   # GET /data_sources.json
   def index
-    @data_sources = DataSource.all
+    @search = DataSource.search(params[:q])
+    @data_sources  = @search.result.order(:name).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
