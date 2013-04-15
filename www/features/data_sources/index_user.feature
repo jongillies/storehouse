@@ -1,7 +1,7 @@
-Feature: Manage Data Source
-  In order to make a data source
-  As an admin
-  I want to create and manage data_sources
+Feature: View Data Source
+  In order to view a data sources
+  As a user
+  I want to view data_sources
 
   Scenario: DataSources list
     Given I have data_sources

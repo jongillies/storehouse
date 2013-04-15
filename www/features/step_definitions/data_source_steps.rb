@@ -32,6 +32,10 @@ Then /^I should see "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
 
-#And(/^I should see "(.*?)"$/) do |arg1|
-#  pending # express the regexp above with the code you wish you had
-#end
+When(/^I should see a "([^"]*)" button$/) do |arg|
+  page.should have_content(arg)
+end
+
+When(/^I am logged in as admin$/) do
+  pending
+end
