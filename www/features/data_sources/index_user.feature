@@ -15,12 +15,16 @@ Feature: View Data Source
     And I should see "false"
 
 
-  Scenario: DataSources list as admin
+  Scenario Outline: DataSources list as admin should see New button
     Given I have data_sources
     Given I exist as an administrator
     Given I sign in with valid credentials
     Given I go to the list of data_sources
     Then I should see and admin link
+    Then I should see a "<arg>" button
+  Examples:
+    | arg |
+    | New |
 #
 #
 #  Scenario: User signs in successfully
