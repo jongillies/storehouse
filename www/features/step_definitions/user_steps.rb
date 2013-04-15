@@ -41,6 +41,11 @@ Given /^I exist as a user$/ do
   create_user
 end
 
+Given(/^I exist as an administrator$/) do
+  create_user
+  @user.add_role('admin')
+end
+
 Given /^I do not exist as a user$/ do
   create_visitor
   delete_user
@@ -100,4 +105,10 @@ end
 
 Then /^I see an invalid login message$/ do
   page.should have_content 'Invalid email or password.'
+end
+Then(/^I should see and admin link$/) do
+  page.should have_content 'Admin'
+end
+Then(/^I should not see and admin link$/) do
+  page.should_not have_content 'Admin'
 end
