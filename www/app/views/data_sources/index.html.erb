@@ -4,7 +4,6 @@
 </div>
 
 <%= search_form_for @search, :html => {:class => "form-inline"} do |f| %>
-    <!--<%= f.label :name_cont, "Search:" %>-->
     <%= f.text_field :name_or_contact_or_description_cont %>
     <%= f.submit "Search", :name => nil, :class => "btn" %>
     <%= f.submit "Clear", :name => nil, :class => "btn", :id => :q_reset %>

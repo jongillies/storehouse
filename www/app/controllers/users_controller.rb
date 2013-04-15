@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
     @search = User.search(params[:q])
     @users  = @search.result.order(:name).page params[:page]
-    #@users = User.order(:name).page params[:page]
   end
 
   def show
