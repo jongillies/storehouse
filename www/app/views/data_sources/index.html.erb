@@ -1,6 +1,6 @@
 <%- model_class = DataSource -%>
 <div class="page-header">
-  <h1><%= t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %></h1>
 </div>
 
 <%= search_form_for @search, :html => {:class => "form-inline"} do |f| %>
