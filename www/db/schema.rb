@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412233043) do
+ActiveRecord::Schema.define(:version => 20130415045537) do
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130412233043) do
     t.text     "connection_info"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "cron_schedule"
   end
 
   create_table "roles", :force => true do |t|

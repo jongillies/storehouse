@@ -16,6 +16,8 @@
       <% if current_user.has_role? :admin %>
           <dt><strong><%= model_class.human_attribute_name(:connection_info) %>:</strong></dt>
           <dd><%= @data_source.connection_info %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:cron_schedule) %>:</strong></dt>
+          <dd><%= @data_source.cron_schedule %></dd>
       <% end %>
   <% end %>
 </dl>

@@ -4,21 +4,25 @@
   active: true
   contact: one@email.com
   connection_info: one.yml
+  cron_schedule: *  *  *  *  *
 2:
   name: Data Source Two
   description: Heuretess crescere in fatalis tornacum Est talis species, cesaris.Solem neuter cotta est Mirabilis lunas ducunt ad sensorem Cur heuretes observare? superbus ignigena una imperiums eleates est Lixa de lotus ratione, transferre resistentia Accolas accelerare, tanquam teres agripeta Cur apolloniates mori Est varius planeta, cesaris Sectam nobilis aonides est. est neuter ratione, cesaris Persuadere etiam ducunt ad mirabilis hippotoxota Fraticinidas sunt brabeutas de primus itineris tramitem Danistas manducare in festus antverpia Nunquam aperto pes. resistentia, historia, et stella Pol, a bene luba, ventus A falsis, ionicis tormento audax abnoba Hilotaes unda Superbus visuss ducunt ad assimilatio Volare mechanice ducunt ad fatalis luba Est castus ratione, cesaris Mori velox ducunt ad fortis accola Ubi est camerarius domus Apolloniatess observare in castus virundum Armariums sunt ollas de secundus vita
   active: true
   contact: two@email.com
   connection_info: two.yml
+  cron_schedule: *  *  *  *  *
 3:
   name: Data Source Three
   description: Noster, grandis calceuss superbe resuscitabo de teres, nobilis barcas
   active: true
   contact: one@email.com
   connection_info: three.yml
+  cron_schedule: # *  *  *  *  *
 4:
   name: Data Source Four
   description: Raptus, nobilis luras interdum visum de alter, teres apolloniates
   active: false
   contact: two@email.com
   connection_info: four.yml
+  cron_schedule: *  *  *  *  *
