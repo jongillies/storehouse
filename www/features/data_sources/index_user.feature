@@ -13,6 +13,14 @@ Feature: View Data Source
     And I should see "user2@example.com"
     And I should see "true"
     And I should see "false"
+
+
+  Scenario: DataSources list as admin
+    Given I have data_sources
+    Given I exist as an administrator
+    Given I sign in with valid credentials
+    Given I go to the list of data_sources
+    Then I should see and admin link
 #
 #
 #  Scenario: User signs in successfully

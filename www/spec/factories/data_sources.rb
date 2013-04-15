@@ -7,5 +7,6 @@ FactoryGirl.define do
     active false
     contact "MyString"
     connection_info "MyText"
+    cron_schedule "* * * * *"
   end
 end
