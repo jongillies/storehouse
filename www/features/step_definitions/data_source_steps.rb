@@ -33,7 +33,11 @@ Then /^I should see "([^"]*)"$/ do |text|
 end
 
 When(/^I should see a "([^"]*)" button$/) do |arg|
-  page.should have_content(arg)
+  page.should have_button(arg)
+end
+
+When(/^I should see link "([^"]*)"$/) do |arg|
+  page.should have_link(arg)
 end
 
 When(/^I am logged in as admin$/) do

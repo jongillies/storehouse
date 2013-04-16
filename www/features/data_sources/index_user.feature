@@ -21,10 +21,13 @@ Feature: View Data Source
     Given I sign in with valid credentials
     Given I go to the list of data_sources
     Then I should see and admin link
+    Then I should see link "New"
     Then I should see a "<arg>" button
   Examples:
     | arg |
-    | New |
+    | Search |
+    | Clear |
+
 #
 #
 #  Scenario: User signs in successfully

@@ -30,9 +30,6 @@
 
 <% if user_signed_in? %>
     <% if current_user.has_role? :admin %>
-
-        <%= link_to t('.new', :default => t("helpers.links.new")),
-                    new_data_source_path,
-                    :class => 'btn btn-primary' %>
+        <%= link_to "New", new_data_source_path, :class => 'btn btn-primary', :id => "New" %>
     <% end %>
 <% end %>
