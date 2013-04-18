@@ -5,4 +5,6 @@ class DataSource < ActiveRecord::Base
   validates :description, :presence => true
 
   attr_accessible :active, :connection_info, :contact, :description, :name
+
+  has_many :export_runs, :dependent => :destroy
 end

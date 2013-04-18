@@ -18,6 +18,8 @@
     <th><%= sort_link @search, :name, "Name" %></th>
     <th><%= sort_link @search, :active, "Active" %></th>
     <th><%= sort_link @search, :contact, "Contact" %></th>
+    <th>Export Runs</th>
+    <th>Latest Export</th>
   </tr>
   </thead>
   <tbody>
@@ -26,6 +28,8 @@
         <td><%= link_to data_source.name, data_source_path(data_source) %></td>
         <td><%= data_source.active %></td>
         <td><%= data_source.contact %></td>
+        <td><%= data_source.export_runs.count %></td>
+        <td><%= data_source.export_runs.last.started_at %></td>
       </tr>
   <% end %>
   </tbody>

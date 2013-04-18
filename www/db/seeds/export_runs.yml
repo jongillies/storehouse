@@ -1,0 +1,30 @@
+- id: 1
+  started_at: 2012-04-01 00:00:00
+  finished_at: 2012-04-01 01:03:06
+  record_count: 100
+  data_source_id: 1
+  export_set_id: 1
+- id: 2
+  started_at: 2012-04-02 02:00:00
+  finished_at: 2012-04-02 03:46:05
+  record_count: 200
+  data_source_id: 2
+  export_set_id: 2
+- id: 3
+  started_at: 2012-04-03 00:00:00
+  finished_at: 2012-04-03 00:03:06
+  record_count: 300
+  data_source_id: 3
+  export_set_id: 3
+- id: 4
+  started_at: 2012-04-04 00:00:00
+  finished_at: 2012-04-04 04:09:07
+  record_count: 400
+  data_source_id: 4
+  export_set_id: 4
+- id: 5
+  started_at: 2012-05-01 00:00:00
+  finished_at: 2012-05-01 01:03:06
+  record_count: 99
+  data_source_id: 1
+  export_set_id: 5

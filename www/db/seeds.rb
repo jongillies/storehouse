@@ -26,7 +26,12 @@ YAML::load_file('db/seeds/roles_and_users.yml')['users'].each do |_, user|
   puts "User> #{db_user.name} #{db_user.email}"
 end
 
-YAML::load_file('db/seeds/data_sources.yml').each do |_, data_source|
+YAML::load_file('db/seeds/data_sources.yml').each do |data_source|
   ds = DataSource.find_or_create_by_name(data_source, :without_protection => true)
   puts "DataSource> #{ds.name}"
+end
+
+YAML::load_file('db/seeds/export_runs.yml').each do |export_run|
+  er = ExportRun.find_or_create_by_id(export_run, :without_protection => true)
+  puts "ExportRun> #{er.created_at}"
 end
