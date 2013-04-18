@@ -1,0 +1,28 @@
+<%- model_class = ExportRun -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link @search, :started_at, "Started At" %></th>
+      <th><%= sort_link @search, :finished_at, "Finished At" %></th>
+      <th><%= model_class.human_attribute_name(:data_source_id).titleize.pluralize %></th>
+      <th><%= model_class.human_attribute_name(:export_set_id).titleize.pluralize %></th>
+      <th><%= sort_link @search, :created_at, "Created At" %></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @export_runs.each do |export_run| %>
+      <tr>
+        <td><%= link_to export_run.started_at, export_run_path(export_run) %></td>
+        <td><%= export_run.finished_at %></td>
+        <td><%= export_run.data_source.name %></td>
+        <td><%= export_run.export_set_id %></td>
+        <td><%=l export_run.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

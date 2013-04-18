@@ -1,0 +1,20 @@
+<%- model_class = ExportRun -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:started_at) %>:</strong></dt>
+  <dd><%= @export_run.started_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:finished_at) %>:</strong></dt>
+  <dd><%= @export_run.finished_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data_source_id) %>:</strong></dt>
+  <dd><%= @export_run.data_source_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:export_set_id) %>:</strong></dt>
+  <dd><%= @export_run.export_set_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              export_runs_path, :class => 'btn'  %>
+</div>
