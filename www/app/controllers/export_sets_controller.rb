@@ -5,6 +5,8 @@ class ExportSetsController < ApplicationController
     @search = ExportSet.search(params[:q])
     @export_sets  = @search.result.order(:created_at).page params[:page]
 
+    @export_run = ExportRun.find_by_id(params[:export_run_id])
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @export_sets }

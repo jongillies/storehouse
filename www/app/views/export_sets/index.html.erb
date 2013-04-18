@@ -1,6 +1,6 @@
 <%- model_class = ExportSet -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %></h1>
+  <h3><%=t '.title', :default => model_class.model_name.human.titleize %><%= ": #{@export_run.data_source.name} at #{@export_run.started_at}" if @export_run %> </h3>
 </div>
 <table class="table table-striped">
   <thead>
