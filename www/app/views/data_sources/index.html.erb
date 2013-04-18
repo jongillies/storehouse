@@ -28,8 +28,8 @@
         <td><%= link_to data_source.name, data_source_path(data_source) %></td>
         <td><%= data_source.active %></td>
         <td><%= data_source.contact %></td>
-        <td><%= data_source.export_runs.count %></td>
-        <td><%= data_source.export_runs.last.started_at %></td>
+        <td><%= link_to data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => data_source.id}) if data_source.export_runs %>
+        <td><%= data_source.export_runs.last.started_at if data_source.export_runs %></td>
       </tr>
   <% end %>
   </tbody>
