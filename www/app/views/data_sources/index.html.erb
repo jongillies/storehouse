@@ -7,6 +7,9 @@
     <%= f.text_field :name_or_contact_or_description_cont %>
     <%= f.submit "Search", :name => nil, :class => "btn" %>
     <%= f.submit "Clear", :name => nil, :class => "btn", :id => :q_reset %>
+    <span class="badge"><%= @search.result.count %></span> of
+    <span class="badge badge-inverse"><%= DataSource.count %></span>
+
 <% end %>
 
 <table class="table table-striped">

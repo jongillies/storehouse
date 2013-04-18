@@ -22,19 +22,15 @@
   <% end %>
 </dl>
 
-<% if user_signed_in? %>
-    <% if current_user.has_role? :admin %>
 
-        <div class="form-actions">
-          <%= link_to t('.back', :default => t("helpers.links.back")),
-                      data_sources_path, :class => 'btn' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_data_source_path(@data_source), :class => 'btn' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      data_source_path(@data_source),
-                      :method => 'delete',
-                      :data   => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
-                      :class  => 'btn btn-danger' %>
-        </div>
-    <% end %>
-<% end %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              data_sources_path, :class => 'btn' %>
+  <% if can? :edit, @data_source %>
+      <%= link_to_edit(@data_source) %>
+  <% end %>
+  <% if can? :destroy, @data_source %>
+      <%= link_to_destroy(@data_source) %>
+  <% end %>
+
+</div>
