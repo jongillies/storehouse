@@ -1,5 +1,5 @@
 class ExportSet < ActiveRecord::Base
   attr_accessible :data_record_id, :export_run_id, :record_size
 
-  belongs_to :export_run
+  has_and_belongs_to_many :export_run
 end

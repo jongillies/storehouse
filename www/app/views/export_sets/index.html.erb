@@ -8,7 +8,6 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:record_size) %></th>
       <th><%= model_class.human_attribute_name(:data_record_id) %></th>
-      <th><%= model_class.human_attribute_name(:export_run_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
     </tr>
   </thead>
@@ -18,9 +17,7 @@
         <td><%= link_to export_set.id, export_set_path(export_set) %></td>
         <td><%= export_set.record_size %></td>
         <td><%= export_set.data_record_id %></td>
-        <td><%= link_to "asdf", export_runs_path(:q => {:id_eq => export_set.export_run_id}) if export_set.export_run %>
 
-        <td><%= export_set.export_run_id %></td>
         <td><%=l export_set.created_at %></td>
       </tr>
     <% end %>
