@@ -2,13 +2,15 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %></h1>
 </div>
+<span class="badge"><%= @search.result.count %></span> of
+<span class="badge badge-inverse"><%= ExportRun.count %></span>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= sort_link @search, :started_at, "Started At" %></th>
       <th><%= sort_link @search, :finished_at, "Finished At" %></th>
-      <th><%= model_class.human_attribute_name(:data_source_id).titleize.pluralize %></th>
-      <th><%= model_class.human_attribute_name(:export_set_id).titleize.pluralize %></th>
+      <th><%= model_class.human_attribute_name(:data_source_id).titleize %></th>
+      <th><%= model_class.human_attribute_name(:export_set_id).titleize %></th>
       <th><%= sort_link @search, :created_at, "Created At" %></th>
 
     </tr>
@@ -18,11 +20,12 @@
       <tr>
         <td><%= link_to export_run.started_at, export_run_path(export_run) %></td>
         <td><%= export_run.finished_at %></td>
-        <td><%= export_run.data_source.name %></td>
-        <td><%= export_run.export_set_id %></td>
+        <td><%= link_to export_run.data_source.name, data_source_path(export_run.data_source) %></td>
+        <td><%= link_to "List", export_sets_path(:q => {:export_run_id_eq => export_run.id}) if export_run.export_sets %>
         <td><%=l export_run.created_at %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= paginate @export_runs %>

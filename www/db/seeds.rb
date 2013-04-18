@@ -35,3 +35,8 @@ YAML::load_file('db/seeds/export_runs.yml').each do |export_run|
   er = ExportRun.find_or_create_by_id(export_run, :without_protection => true)
   puts "ExportRun> #{er.created_at}"
 end
+
+YAML::load_file('db/seeds/export_sets.yml').each do |export_set|
+  es = ExportSet.find_or_create_by_id(export_set, :without_protection => true)
+  puts "ExportSet> #{es.created_at}"
+end

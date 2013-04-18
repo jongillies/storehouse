@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418172131) do
+ActiveRecord::Schema.define(:version => 20130418212615) do
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(:version => 20130418172131) do
     t.integer  "record_count"
     t.integer  "data_source_id"
     t.integer  "export_set_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "export_sets", :force => true do |t|
+    t.integer  "record_size"
+    t.integer  "data_record_id"
+    t.integer  "export_run_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

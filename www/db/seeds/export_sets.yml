@@ -1,0 +1,12 @@
+- id: 1
+  record_size: 100
+  data_record_id: 1
+  export_run_id: 1
+- id: 2
+  record_size: 100
+  data_record_id: 2
+  export_run_id: 1
+- id: 3
+  record_size: 100
+  data_record_id: 3
+  export_run_id: 1
