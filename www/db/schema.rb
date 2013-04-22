@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422200807) do
+ActiveRecord::Schema.define(:version => 20130422203827) do
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
@@ -31,18 +31,12 @@ ActiveRecord::Schema.define(:version => 20130422200807) do
     t.string   "checksum"
     t.string   "location_pointer"
     t.string   "primary_key"
+    t.integer  "export_run_id"
   end
 
   add_index "export_records", ["checksum"], :name => "index_export_records_on_checksum"
   add_index "export_records", ["location_pointer"], :name => "index_export_records_on_location_pointer"
   add_index "export_records", ["primary_key"], :name => "index_export_records_on_primary_key"
-
-  create_table "export_records_export_runs", :id => false, :force => true do |t|
-    t.integer "export_record_id"
-    t.integer "export_run_id"
-  end
-
-  add_index "export_records_export_runs", ["export_record_id", "export_run_id"], :name => "index_export_sets_export_runs_on_export_set_id_and_export_run_id"
 
   create_table "export_runs", :force => true do |t|
     t.datetime "started_at"

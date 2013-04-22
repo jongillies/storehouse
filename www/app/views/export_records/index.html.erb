@@ -1,22 +1,24 @@
 <%- model_class = ExportRecord -%>
 <div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %> <%= "for #{@export_run.data_source.name} at " %> <%= @export_run.started_at if @export_run %> </h2>
+  <h2><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %> <%= "for #{@export_run.data_source.name} at #{@export_run.started_at}" if @export_run %> </h2>
 </div>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:primary_key) %></th>
-    <th><%= model_class.human_attribute_name(:record_size) %></th>
-    <th># Data Sources</th>
-    <th><%= model_class.human_attribute_name(:created_at) %></th>
+    <th><%= model_class.human_attribute_name(:primary_key).titleize %></th>
+    <th><%= model_class.human_attribute_name(:checksum).titleize %></th>
+    <th><%= model_class.human_attribute_name(:record_size).titleize %></th>
+    <th><%= model_class.human_attribute_name(:data_source_id).titleize %></th>
+    <th><%= model_class.human_attribute_name(:created_at).titleize %></th>
   </tr>
   </thead>
   <tbody>
   <% @export_records.each do |export_record| %>
       <tr>
-        <td><%= link_to export_record.id, export_record %></td>
+        <td><%= link_to export_record.primary_key, export_record %></td>
+        <td><%= export_record.checksum %></td>
         <td><%= export_record.record_size %></td>
-        <td><%= export_record.data_sources.count %></td>
+        <td><%= link_to export_record.export_run.data_source.name, export_record.export_run.data_source %></td>
 
         <td><%=l export_record.created_at %></td>
       </tr>

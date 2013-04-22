@@ -5,22 +5,23 @@
 
 <dl class="dl-horizontal">
 
-  <dt><strong><%= model_class.human_attribute_name(:primary_key) %>:</strong></dt>
+  <dt><strong>Data Source:</strong></dt>
+  <dd><%= link_to @export_record.export_run.data_source.name, @export_record.export_run.data_source %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:primary_key).titleize %>:</strong></dt>
   <dd><%= @export_record.primary_key %></dd>
 
-  <dt><strong><%= model_class.human_attribute_name(:checksum) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:checksum).titleize %>:</strong></dt>
   <dd><%= @export_record.checksum %></dd>
 
-  <dt><strong><%= model_class.human_attribute_name(:location_pointer) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:location_pointer).titleize %>:</strong></dt>
   <dd><%= @export_record.location_pointer %></dd>
 
-  <dt><strong><%= model_class.human_attribute_name(:record_size) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:record_size).titleize %>:</strong></dt>
   <dd><%= @export_record.record_size %></dd>
 
-  <dt><strong>Data Sources:</strong></dt>
-  <% @export_record.data_sources.each do |ds| %>
-      <dd><%= link_to ds.name, ds %></dd>
-  <% end %>
+  <!--<dt><strong>Duplicity:</strong></dt>-->
+  <!--<dd><%= link_to ExportRecord.select('checksum, data_source_id').where("checksum = ?",@export_record.checksum).uniq.count, export_records_path(:q => {:checksum_eq => @export_record.checksum}) %></dd>-->
 
 
 </dl>

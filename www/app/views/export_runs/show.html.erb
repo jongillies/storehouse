@@ -17,7 +17,8 @@
   <dd><%= link_to @export_run.data_source.name, data_source_path(@export_run.data_source) %></dd>
 
   <dt><strong><%= model_class.human_attribute_name(:export_record_id).titleize.pluralize %>:</strong></dt>
-  <dd><%= link_to "Record List", export_records_path(:q => {:export_run_id_eq => @export_run.id}, :params => {export_run_id: @export_run.id}) if @export_run.export_records %></dd>
+  <dd><%= link_to @export_run.export_records.count, export_records_path(:q => {:export_run_id_eq => @export_run.id}, :params => {export_run_id: @export_run.id}) if @export_run.export_records %></dd>
+
 </dl>
 
 <div class="form-actions">
