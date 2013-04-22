@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422164537) do
+ActiveRecord::Schema.define(:version => 20130422200807) do
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
@@ -26,10 +26,16 @@ ActiveRecord::Schema.define(:version => 20130422164537) do
 
   create_table "export_records", :force => true do |t|
     t.integer  "record_size"
-    t.integer  "data_record_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "checksum"
+    t.string   "location_pointer"
+    t.string   "primary_key"
   end
+
+  add_index "export_records", ["checksum"], :name => "index_export_records_on_checksum"
+  add_index "export_records", ["location_pointer"], :name => "index_export_records_on_location_pointer"
+  add_index "export_records", ["primary_key"], :name => "index_export_records_on_primary_key"
 
   create_table "export_records_export_runs", :id => false, :force => true do |t|
     t.integer "export_record_id"
@@ -45,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130422164537) do
     t.integer  "data_source_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "duration"
   end
 
   create_table "roles", :force => true do |t|

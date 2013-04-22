@@ -3,4 +3,12 @@ class ExportRun < ActiveRecord::Base
 
   belongs_to :data_source
   has_and_belongs_to_many :export_records
+
+  before_create :update_duration
+
+  private
+
+  def update_duration
+    self.duration = finished_at - started_at
+  end
 end

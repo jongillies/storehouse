@@ -5,6 +5,15 @@
 
 <dl class="dl-horizontal">
 
+  <dt><strong><%= model_class.human_attribute_name(:primary_key) %>:</strong></dt>
+  <dd><%= @export_record.primary_key %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:checksum) %>:</strong></dt>
+  <dd><%= @export_record.checksum %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:location_pointer) %>:</strong></dt>
+  <dd><%= @export_record.location_pointer %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:record_size) %>:</strong></dt>
   <dd><%= @export_record.record_size %></dd>
 

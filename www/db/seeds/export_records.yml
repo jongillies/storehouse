@@ -1,9 +1,15 @@
 - id: 1
   record_size: 100
-  data_record_id: 1
+  primary_key: 1
+  checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
+  location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
 - id: 2
   record_size: 100
-  data_record_id: 2
+  primary_key: 2
+  checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
+  location_pointer: https://tk421.s3.amazonaws.com/7448d8798a4380162d4b56f9b452e2f6f9e24e7a
 - id: 3
   record_size: 100
-  data_record_id: 3
+  primary_key: 3
+  checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
+  location_pointer:  https://tk421.s3.amazonaws.com/a3db5c13ff90a36963278c6a39e4ee3c22e2a436

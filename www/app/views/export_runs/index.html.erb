@@ -8,9 +8,9 @@
   <thead>
     <tr>
       <th><%= sort_link @search, :started_at, "Started At" %></th>
-      <th><%= sort_link @search, :finished_at, "Finished At" %></th>
+      <th><%= sort_link @search, :duration, "Duration" %></th>
       <th><%= model_class.human_attribute_name(:data_source_id).titleize %></th>
-      <th><%= 'Record List' %></th>
+      <th><%= 'Records' %></th>
       <th><%= sort_link @search, :created_at, "Created At" %></th>
 
     </tr>
@@ -19,7 +19,7 @@
     <% @export_runs.each do |export_run| %>
       <tr>
         <td><%= link_to export_run.started_at, export_run_path(export_run) %></td>
-        <td><%= export_run.finished_at %></td>
+        <td><%= export_run.duration/60 if export_run.duration %></td>
         <td><%= link_to export_run.data_source.name, data_source_path(export_run.data_source) %></td>
         <td><%= link_to export_run.export_records.count, export_records_path(:q => {:export_run_id_eq => export_run.id}, params: { export_run_id: export_run.id }) if export_run.export_records %>
         <td><%=l export_run.created_at %></td>

@@ -5,9 +5,8 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:primary_key) %></th>
     <th><%= model_class.human_attribute_name(:record_size) %></th>
-    <th><%= model_class.human_attribute_name(:data_record_id) %></th>
     <th># Data Sources</th>
     <th><%= model_class.human_attribute_name(:created_at) %></th>
   </tr>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= link_to export_record.id, export_record %></td>
         <td><%= export_record.record_size %></td>
-        <td><%= export_record.data_record_id %></td>
         <td><%= export_record.data_sources.count %></td>
 
         <td><%=l export_record.created_at %></td>
