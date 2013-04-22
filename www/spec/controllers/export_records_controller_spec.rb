@@ -18,10 +18,10 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe ExportSetsController do
+describe ExportRecordsController do
 
   # This should return the minimal set of attributes required to create a valid
-  # ExportSet. As you add validations to ExportSet, be sure to
+  # ExportRecord. As you add validations to ExportRecord, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
     { "record_size" => "1" }
@@ -29,74 +29,74 @@ describe ExportSetsController do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # ExportSetsController. Be sure to keep this updated too.
+  # ExportRecordsController. Be sure to keep this updated too.
   def valid_session
     {}
   end
 
   describe "GET index" do
-    it "assigns all export_sets as @export_sets" do
-      export_set = ExportSet.create! valid_attributes
+    it "assigns all export_records as @export_records" do
+      export_set = ExportRecord.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:export_sets).should eq([export_set])
+      assigns(:export_records).should eq([export_set])
     end
   end
 
   describe "GET show" do
     it "assigns the requested export_set as @export_set" do
-      export_set = ExportSet.create! valid_attributes
+      export_set = ExportRecord.create! valid_attributes
       get :show, {:id => export_set.to_param}, valid_session
-      assigns(:export_set).should eq(export_set)
+      assigns(:export_record).should eq(export_set)
     end
   end
 
   describe "GET new" do
     it "assigns a new export_set as @export_set" do
       get :new, {}, valid_session
-      assigns(:export_set).should be_a_new(ExportSet)
+      assigns(:export_record).should be_a_new(ExportRecord)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested export_set as @export_set" do
-      export_set = ExportSet.create! valid_attributes
+      export_set = ExportRecord.create! valid_attributes
       get :edit, {:id => export_set.to_param}, valid_session
-      assigns(:export_set).should eq(export_set)
+      assigns(:export_record).should eq(export_set)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new ExportSet" do
+      it "creates a new ExportRecord" do
         expect {
-          post :create, {:export_set => valid_attributes}, valid_session
-        }.to change(ExportSet, :count).by(1)
+          post :create, {:export_record => valid_attributes}, valid_session
+        }.to change(ExportRecord, :count).by(1)
       end
 
       it "assigns a newly created export_set as @export_set" do
-        post :create, {:export_set => valid_attributes}, valid_session
-        assigns(:export_set).should be_a(ExportSet)
-        assigns(:export_set).should be_persisted
+        post :create, {:export_record => valid_attributes}, valid_session
+        assigns(:export_record).should be_a(ExportRecord)
+        assigns(:export_record).should be_persisted
       end
 
       it "redirects to the created export_set" do
-        post :create, {:export_set => valid_attributes}, valid_session
-        response.should redirect_to(ExportSet.last)
+        post :create, {:export_record => valid_attributes}, valid_session
+        response.should redirect_to(ExportRecord.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved export_set as @export_set" do
         # Trigger the behavior that occurs when invalid params are submitted
-        ExportSet.any_instance.stub(:save).and_return(false)
-        post :create, {:export_set => { "record_size" => "invalid value" }}, valid_session
-        assigns(:export_set).should be_a_new(ExportSet)
+        ExportRecord.any_instance.stub(:save).and_return(false)
+        post :create, {:export_record => { "record_size" => "invalid value" }}, valid_session
+        assigns(:export_record).should be_a_new(ExportRecord)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        ExportSet.any_instance.stub(:save).and_return(false)
-        post :create, {:export_set => { "record_size" => "invalid value" }}, valid_session
+        ExportRecord.any_instance.stub(:save).and_return(false)
+        post :create, {:export_record => { "record_size" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -105,42 +105,42 @@ describe ExportSetsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested export_set" do
-        export_set = ExportSet.create! valid_attributes
-        # Assuming there are no other export_sets in the database, this
-        # specifies that the ExportSet created on the previous line
+        export_set = ExportRecord.create! valid_attributes
+        # Assuming there are no other export_records in the database, this
+        # specifies that the ExportRecord created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        ExportSet.any_instance.should_receive(:update_attributes).with({ "record_size" => "1" })
-        put :update, {:id => export_set.to_param, :export_set => { "record_size" => "1" }}, valid_session
+        ExportRecord.any_instance.should_receive(:update_attributes).with({ "record_size" => "1" })
+        put :update, {:id => export_set.to_param, :export_record => { "record_size" => "1" }}, valid_session
       end
 
       it "assigns the requested export_set as @export_set" do
-        export_set = ExportSet.create! valid_attributes
-        put :update, {:id => export_set.to_param, :export_set => valid_attributes}, valid_session
-        assigns(:export_set).should eq(export_set)
+        export_set = ExportRecord.create! valid_attributes
+        put :update, {:id => export_set.to_param, :export_record => valid_attributes}, valid_session
+        assigns(:export_record).should eq(export_set)
       end
 
       it "redirects to the export_set" do
-        export_set = ExportSet.create! valid_attributes
-        put :update, {:id => export_set.to_param, :export_set => valid_attributes}, valid_session
+        export_set = ExportRecord.create! valid_attributes
+        put :update, {:id => export_set.to_param, :export_record => valid_attributes}, valid_session
         response.should redirect_to(export_set)
       end
     end
 
     describe "with invalid params" do
       it "assigns the export_set as @export_set" do
-        export_set = ExportSet.create! valid_attributes
+        export_set = ExportRecord.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        ExportSet.any_instance.stub(:save).and_return(false)
-        put :update, {:id => export_set.to_param, :export_set => { "record_size" => "invalid value" }}, valid_session
-        assigns(:export_set).should eq(export_set)
+        ExportRecord.any_instance.stub(:save).and_return(false)
+        put :update, {:id => export_set.to_param, :export_record => { "record_size" => "invalid value" }}, valid_session
+        assigns(:export_record).should eq(export_set)
       end
 
       it "re-renders the 'edit' template" do
-        export_set = ExportSet.create! valid_attributes
+        export_set = ExportRecord.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        ExportSet.any_instance.stub(:save).and_return(false)
-        put :update, {:id => export_set.to_param, :export_set => { "record_size" => "invalid value" }}, valid_session
+        ExportRecord.any_instance.stub(:save).and_return(false)
+        put :update, {:id => export_set.to_param, :export_record => { "record_size" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
@@ -148,14 +148,14 @@ describe ExportSetsController do
 
   describe "DELETE destroy" do
     it "destroys the requested export_set" do
-      export_set = ExportSet.create! valid_attributes
+      export_set = ExportRecord.create! valid_attributes
       expect {
         delete :destroy, {:id => export_set.to_param}, valid_session
-      }.to change(ExportSet, :count).by(-1)
+      }.to change(ExportRecord, :count).by(-1)
     end
 
-    it "redirects to the export_sets list" do
-      export_set = ExportSet.create! valid_attributes
+    it "redirects to the export_records list" do
+      export_set = ExportRecord.create! valid_attributes
       delete :destroy, {:id => export_set.to_param}, valid_session
       response.should redirect_to(export_sets_url)
     end

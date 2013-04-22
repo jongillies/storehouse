@@ -1,0 +1,29 @@
+<%- model_class = ExportRecord -%>
+<div class="page-header">
+  <h2><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %><%= ": #{@export_run.data_source.name} at #{@export_run.started_at}" if @export_run %> </h2>
+</div>
+<%= link_to @export_run.data_source.name, data_source_path( @export_run.data_source), :class => 'btn btn-primary', :id => @export_run.data_source.name %>
+<%= link_to "Export Run", export_run_path(@export_run), :class => 'btn btn-primary', :id => 'Export Run' %>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:record_size) %></th>
+    <th><%= model_class.human_attribute_name(:data_record_id) %></th>
+    <th><%= model_class.human_attribute_name(:created_at) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @export_records.each do |export_record| %>
+      <tr>
+        <td><%= link_to export_record.id, export_record, :params => {export_run_id: @export_run.id} %></td>
+        <td><%= export_record.record_size %></td>
+        <td><%= export_record.data_record_id %></td>
+
+        <td><%=l export_record.created_at %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @export_records %>

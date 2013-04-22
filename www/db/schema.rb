@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418232650) do
+ActiveRecord::Schema.define(:version => 20130422164537) do
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
@@ -24,25 +24,25 @@ ActiveRecord::Schema.define(:version => 20130418232650) do
     t.string   "cron_schedule"
   end
 
+  create_table "export_records", :force => true do |t|
+    t.integer  "record_size"
+    t.integer  "data_record_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "export_records_export_runs", :id => false, :force => true do |t|
+    t.integer "export_record_id"
+    t.integer "export_run_id"
+  end
+
+  add_index "export_records_export_runs", ["export_record_id", "export_run_id"], :name => "index_export_sets_export_runs_on_export_set_id_and_export_run_id"
+
   create_table "export_runs", :force => true do |t|
     t.datetime "started_at"
     t.datetime "finished_at"
     t.integer  "record_count"
     t.integer  "data_source_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  create_table "export_runs_export_sets", :id => false, :force => true do |t|
-    t.integer "export_set_id"
-    t.integer "export_run_id"
-  end
-
-  add_index "export_runs_export_sets", ["export_set_id", "export_run_id"], :name => "index_export_sets_export_runs_on_export_set_id_and_export_run_id"
-
-  create_table "export_sets", :force => true do |t|
-    t.integer  "record_size"
-    t.integer  "data_record_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

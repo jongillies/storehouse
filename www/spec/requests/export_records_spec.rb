@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "ExportSets" do
-  describe "GET /export_sets" do
+  describe "GET /export_records" do
     it "works! (now write some real specs)" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       get export_sets_path

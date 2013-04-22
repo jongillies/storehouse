@@ -36,14 +36,14 @@ YAML::load_file('db/seeds/export_runs.yml').each do |export_run|
   puts "ExportRun> #{er.created_at}"
 end
 
-YAML::load_file('db/seeds/export_sets.yml').each do |export_set|
-  es = ExportSet.find_or_create_by_id(export_set, :without_protection => true)
-  puts "ExportSet> #{es.created_at}"
+YAML::load_file('db/seeds/export_records.yml').each do |export_set|
+  es = ExportRecord.find_or_create_by_id(export_set, :without_protection => true)
+  puts "ExportRecord> #{es.created_at}"
 end
 
-YAML::load_file('db/seeds/export_sets_export_runs_join.yml').each do |export_join|
+YAML::load_file('db/seeds/export_records_export_runs_join.yml').each do |export_join|
   er = ExportRun.find_by_id(export_join["export_run_id"])
-  es = ExportSet.find_by_id(export_join["export_set_id"])
-  er.export_sets << es
-  puts "Join> #{er.id} to #{es.id}"
+  ed = ExportRecord.find_by_id(export_join["export_record_id"])
+  er.export_records << ed
+  puts "Join> #{er.id} to #{ed.id}"
 end

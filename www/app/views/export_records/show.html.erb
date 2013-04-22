@@ -1,0 +1,21 @@
+<%- model_class = ExportRecord -%>
+<div class="page-header">
+  <h2><%=t '.title', :default => model_class.model_name.human.titleize %></h2>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= 'Data Source' %>:</strong></dt>
+  <dd></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:record_size) %>:</strong></dt>
+  <dd><%= @export_record.record_size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data_record_id) %>:</strong></dt>
+  <dd><%= @export_record.data_record_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:export_run_id).titleize %>:</strong></dt>
+  <dd><%= link_to @export_record.id, export_run_path(@export_record) %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              export_records_path, :class => 'btn'  %>
+</div>

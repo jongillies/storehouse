@@ -1,6 +1,6 @@
 <%- model_class = DataSource -%>
 <div class="page-header">
-  <h1><%= t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h2><%= t '.title', :default => model_class.model_name.human.titleize %></h2>
 </div>
 
 <dl class="dl-horizontal">
@@ -12,6 +12,8 @@
   <dd><%= @data_source.active %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact) %>:</strong></dt>
   <dd><%= @data_source.contact %></dd>
+  <dt><strong><%= "Export Runs" %>:</strong></dt>
+  <dd><%= link_to @data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => @data_source.id}) if @data_source.export_runs %></dd>
   <% if user_signed_in? %>
       <% if current_user.has_role? :admin %>
           <dt><strong><%= model_class.human_attribute_name(:connection_info) %>:</strong></dt>

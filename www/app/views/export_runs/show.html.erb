@@ -1,6 +1,6 @@
 <%- model_class = ExportRun -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %></h1>
+  <h2><%=t '.title', :default => model_class.model_name.human.titleize %></h2>
 </div>
 
 <dl class="dl-horizontal">
@@ -10,8 +10,8 @@
   <dd><%= @export_run.finished_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:data_source_id) %>:</strong></dt>
   <dd><%= @export_run.data_source_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:export_set_id) %>:</strong></dt>
-  <dd><%= @export_run.export_set_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:export_record_id) %>:</strong></dt>
+  <dd><%= link_to "Record List", export_records_path(:q => {:export_run_id_eq => @export_run.id}, :params => {export_run_id: @export_run.id}) if @export_run.export_records %></dd>
 </dl>
 
 <div class="form-actions">
