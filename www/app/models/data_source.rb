@@ -7,4 +7,5 @@ class DataSource < ActiveRecord::Base
   attr_accessible :active, :connection_info, :contact, :description, :name
 
   has_many :export_runs, :dependent => :destroy
+  has_many :export_records
 end
