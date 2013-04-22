@@ -1,6 +1,7 @@
 class ExportRecord < ActiveRecord::Base
-  attr_accessible :data_record_id, :record_size
+  attr_accessible :record_size
 
   belongs_to :export_run
-  has_one :data_source, :through => :export_runs
+  belongs_to :data_source
+  #has_one :data_source, :through => :export_runs
 end

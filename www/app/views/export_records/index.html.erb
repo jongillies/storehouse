@@ -18,7 +18,7 @@
         <td><%= link_to export_record.primary_key, export_record %></td>
         <td><%= export_record.checksum %></td>
         <td><%= export_record.record_size %></td>
-        <td><%= link_to export_record.export_run.data_source.name, export_record.export_run.data_source %></td>
+        <td><%= link_to export_record.data_source.name, export_record.data_source %></td>
 
         <td><%=l export_record.created_at %></td>
       </tr>

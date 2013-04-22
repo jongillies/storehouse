@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422203827) do
+ActiveRecord::Schema.define(:version => 20130422214441) do
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130422203827) do
     t.string   "location_pointer"
     t.string   "primary_key"
     t.integer  "export_run_id"
+    t.integer  "data_source_id"
   end
 
   add_index "export_records", ["checksum"], :name => "index_export_records_on_checksum"

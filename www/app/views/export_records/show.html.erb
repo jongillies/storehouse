@@ -6,7 +6,7 @@
 <dl class="dl-horizontal">
 
   <dt><strong>Data Source:</strong></dt>
-  <dd><%= link_to @export_record.export_run.data_source.name, @export_record.export_run.data_source %></dd>
+  <dd><%= link_to @export_record.data_source.name, @export_record.data_source %></dd>
 
   <dt><strong><%= model_class.human_attribute_name(:primary_key).titleize %>:</strong></dt>
   <dd><%= @export_record.primary_key %></dd>
