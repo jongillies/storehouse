@@ -6,6 +6,6 @@ FactoryGirl.define do
     finished_at ""
     record_count 1
     data_source_id 1
-    export_set_id 1
+    export_record_id 1
   end
 end

@@ -157,7 +157,7 @@ describe ExportRecordsController do
     it "redirects to the export_records list" do
       export_set = ExportRecord.create! valid_attributes
       delete :destroy, {:id => export_set.to_param}, valid_session
-      response.should redirect_to(export_sets_url)
+      response.should redirect_to(export_records_url)
     end
   end
 
