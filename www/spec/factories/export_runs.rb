@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :export_run do
-    started_at ""
-    finished_at ""
+    id 1
+    started_at Time.now
+    finished_at Time.now
+    duration 0
     record_count 1
     data_source_id 1
-    export_record_id 1
   end
 end

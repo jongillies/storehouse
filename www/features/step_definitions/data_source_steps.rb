@@ -1,16 +1,19 @@
 def create_data_source
-  @ds1 ||= {:name        => "Data Source One",
-            :contact     => "user@example.com",
-            :description => "description",
+
+  @ds1 ||= {:name => 'Data Source One',
+            :contact => 'user@example.com',
+            :description => 'description',
             :active => true
   }
-  DataSource.create(@ds1)
-  @ds2 ||= {:name        => "Data Source Two",
-            :contact     => "user2@example.com",
-            :description => "description 2",
+  @data_source_1 = FactoryGirl.create(:data_source, @ds1)
+
+
+  @ds2 ||= {:name => 'Data Source Two',
+            :contact => 'user2@example.com',
+            :description => 'description 2',
             :active => false
   }
-  DataSource.create(@ds2)
+  @data_source_2 = FactoryGirl.create(:data_source, @ds2)
 
 end
 
