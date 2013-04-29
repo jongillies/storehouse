@@ -5,9 +5,9 @@ Storehouse::Application.routes.draw do
   resources :data_sources
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'data_sources#index'
   end
-  root :to => "home#index"
+  root :to => 'data_sources#index'
 
 #  devise_for :users do
 #    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session

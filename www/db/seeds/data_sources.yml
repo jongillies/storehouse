@@ -3,26 +3,27 @@
   description: Vae, scutum Festus, fortis lubas una experientia de emeritis, regius hippotoxota Ortum etiam ducunt ad gratis hibrida A falsis, triticum placidus mons Magnum lunas ducunt ad scutum Est rusticus particula, cesaris Pol, a bene lamia, flavum sensorem A falsis, ratione alter olla Aonidess experimentum in talis infernum Cur fraticinida manducare Tatas crescere in pius cubiculum! germanus rumors ducunt ad fides Sunt apolloniateses desiderium bassus, raptus aususes Nunquam convertam advena Ubi est velox boreas Eleatess sunt agripetas de talis mens Cur apolloniates observare? heuretes assimilants, tanquam primus abnoba Spatii, amicitia, et fuga Nunquam examinare calceus Est magnum triticum, cesaris Sunt fraticinidaes reperire pius, grandis monses. sunt barcases aperto flavum, secundus axonaes
   active: true
   contact: one@email.com
-  connection_info: one.yml
+  primary_store: ":File, :dir => 'one'"
   cron_schedule: "*  *  *  *  *"
 - id: 2
   name: Data Source Two
   description: Heuretess crescere in fatalis tornacum Est talis species, cesaris.Solem neuter cotta est Mirabilis lunas ducunt ad sensorem Cur heuretes observare? superbus ignigena una imperiums eleates est Lixa de lotus ratione, transferre resistentia Accolas accelerare, tanquam teres agripeta Cur apolloniates mori Est varius planeta, cesaris Sectam nobilis aonides est. est neuter ratione, cesaris Persuadere etiam ducunt ad mirabilis hippotoxota Fraticinidas sunt brabeutas de primus itineris tramitem Danistas manducare in festus antverpia Nunquam aperto pes. resistentia, historia, et stella Pol, a bene luba, ventus A falsis, ionicis tormento audax abnoba Hilotaes unda Superbus visuss ducunt ad assimilatio Volare mechanice ducunt ad fatalis luba Est castus ratione, cesaris Mori velox ducunt ad fortis accola Ubi est camerarius domus Apolloniatess observare in castus virundum Armariums sunt ollas de secundus vita
   active: true
   contact: two@email.com
-  connection_info: two.yml
+  primary_store: ":File, :dir => 'two'"
   cron_schedule: "*  *  *  *  *"
 - id: 3
   name: Data Source Three
   description: Noster, grandis calceuss superbe resuscitabo de teres, nobilis barcas
   active: true
   contact: three@email.com
-  connection_info: three.yml
+  primary_store: ":File, :dir => 'three'"
   cron_schedule: "*  *  *  *  *"
 - id: 4
   name: Data Source Four
   description: Raptus, nobilis luras interdum visum de alter, teres apolloniates
   active: false
   contact: four@email.com
-  connection_info: four.yml
+  primary_store: ":File, :dir => 'four'"
+  secondary_stores: "[ { :File, :dir => 'four-1'}, :File, :dir => 'four-2']"
   cron_schedule: "*  *  *  *  *"
