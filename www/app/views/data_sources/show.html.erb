@@ -16,8 +16,10 @@
   <dd><%= link_to @data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => @data_source.id}) if @data_source.export_runs %></dd>
   <% if user_signed_in? %>
       <% if current_user.has_role? :admin %>
-          <dt><strong><%= model_class.human_attribute_name(:connection_info) %>:</strong></dt>
-          <dd><%= @data_source.connection_info %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:primary_store) %>:</strong></dt>
+          <dd><%= @data_source.primary_store %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:secondary_stores) %>:</strong></dt>
+          <dd><%= @data_source.secondary_stores %></dd>
           <dt><strong><%= model_class.human_attribute_name(:cron_schedule) %>:</strong></dt>
           <dd><%= @data_source.cron_schedule %></dd>
       <% end %>

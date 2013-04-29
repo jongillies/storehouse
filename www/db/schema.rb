@@ -11,17 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422214441) do
+ActiveRecord::Schema.define(:version => 20130429210527) do
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.boolean  "active"
     t.string   "contact"
-    t.text     "connection_info"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.text     "primary_store"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "cron_schedule"
+    t.text     "secondary_stores"
   end
 
   create_table "export_records", :force => true do |t|

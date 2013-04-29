@@ -26,6 +26,10 @@ Given(/^I have data_sources$/) do
   create_data_source
 end
 
+Given(/^I go to the first data source$/) do
+  visit data_sources_path
+  click_link 'Data Source One'
+end
 
 When(/^I go to the list of data_sources$/) do
   visit data_sources_path
