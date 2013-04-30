@@ -6,7 +6,8 @@ FactoryGirl.define do
     description "MyText"
     active false
     contact "MyString"
-    connection_info "MyText"
+    #primary_store "MyText"
+    #secondary_stores "Secondary"
     cron_schedule "* * * * *"
   end
 end
