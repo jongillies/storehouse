@@ -6,11 +6,13 @@ users:
     name: Administrator
     email: admin@example.com
     password: changeme
+    authentication_token: zhQy8hc1qaygDHp8JP8C
     roles:
       - admin
   user:
     name: Joe User
     email: user@example.com
     password: changeme
+    authentication_token: ubqp35MSyko1Xzi4Bkso
     roles:
       - user

@@ -19,4 +19,10 @@ Storehouse::Application.routes.draw do
     get 'page/:page', :action => :index, :on => :collection
   end
 
+  namespace :api do
+    namespace :v1  do
+      resources :tokens,:only => [:create, :destroy]
+    end
+  end
+
 end
