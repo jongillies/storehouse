@@ -19,7 +19,7 @@ class DataSourcesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json do
-        authorize! :read, @data_source, message: 'Not authorized foobar.'
+        authorize! :read, @data_source, message: 'Not authorized for API use.'
         render json: @data_source
       end
     end
