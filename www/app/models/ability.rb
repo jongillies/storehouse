@@ -8,8 +8,11 @@ class Ability
     end
 
     if user.has_role?(:api)
+      can :read, DataSource
+      can :read, ExportRun
       can :create, ExportRun
       can :update, ExportRun
+      can :read, ExportRecord
       can :create, ExportRecord
       can :update, ExportRecord
     end

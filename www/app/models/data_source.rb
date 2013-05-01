@@ -10,9 +10,9 @@ class DataSource < ActiveRecord::Base
   has_many :export_records, :dependent => :destroy
 
   # Exclude protected attributes from json output.
-  def to_json(options={})
-    options[:except] ||=  [ :primary_store, :secondary_stores, :cron_schedule ]
-    super(options)
-  end
+  #def to_json(options={})
+  #  options[:except] ||=  [ :primary_store, :secondary_stores, :cron_schedule ]
+  #  super(options)
+  #end
 
 end

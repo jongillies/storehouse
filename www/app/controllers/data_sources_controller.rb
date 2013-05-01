@@ -3,7 +3,7 @@ class DataSourcesController < ApplicationController
   # GET /data_sources.json
   def index
     @search = DataSource.search(params[:q])
-    @data_sources  = @search.result.order(:name).page params[:page]
+    @data_sources = @search.result.order(:name).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,16 +18,19 @@ class DataSourcesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @data_source }
+      format.json do
+        authorize! :read, @data_source, message: 'Not authorized foobar.'
+        render json: @data_source
+      end
     end
   end
 
   # GET /data_sources/new
   # GET /data_sources/new.json
   def new
-    authorize! :destroy, @user, message: 'Not authorized as an administrator.'
-
     @data_source = DataSource.new
+
+    authorize! :destroy, @data_source, message: 'Not authorized as an administrator.'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -91,4 +94,9 @@ class DataSourcesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def default_serializer_options
+    {root: false}
+  end
+
 end
