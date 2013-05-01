@@ -45,7 +45,8 @@ describe DataSource do
           :contact         => "user@example.com",
           :description     => "description",
           :active          => true,
-          :connection_info => "connection info"
+          :primary_store => "connection info",
+          :secondary_stores => "connection info"
       }
     end
 
