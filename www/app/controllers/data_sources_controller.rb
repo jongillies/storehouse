@@ -7,7 +7,10 @@ class DataSourcesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @data_sources }
+      format.json do
+        authorize! :read, DataSource, message: 'Not authorized for API use.'
+        render json: @data_sources
+      end
     end
   end
 
@@ -19,7 +22,7 @@ class DataSourcesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json do
-        authorize! :read, @data_source, message: 'Not authorized for API use.'
+        authorize! :read, DataSource, message: 'Not authorized for API use.'
         render json: @data_source
       end
     end
@@ -30,7 +33,7 @@ class DataSourcesController < ApplicationController
   def new
     @data_source = DataSource.new
 
-    authorize! :destroy, @data_source, message: 'Not authorized as an administrator.'
+    authorize! :destroy, DataSource, message: 'Not authorized as an administrator.'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,7 @@ class DataSourcesController < ApplicationController
 
   # GET /data_sources/1/edit
   def edit
-    authorize! :edit, @user, message: 'Not authorized as an administrator.'
+    authorize! :edit, DataSource, message: 'Not authorized as an administrator.'
 
     @data_source = DataSource.find(params[:id])
   end
@@ -48,7 +51,7 @@ class DataSourcesController < ApplicationController
   # POST /data_sources
   # POST /data_sources.json
   def create
-    authorize! :create, @user, message: 'Not authorized as an administrator.'
+    authorize! :create, DataSource, message: 'Not authorized as an administrator.'
 
     @data_source = DataSource.new(params[:data_source])
 
@@ -66,7 +69,7 @@ class DataSourcesController < ApplicationController
   # PUT /data_sources/1
   # PUT /data_sources/1.json
   def update
-    authorize! :update, @user, message: 'Not authorized as an administrator.'
+    authorize! :update, DataSource, message: 'Not authorized as an administrator.'
 
     @data_source = DataSource.find(params[:id])
 
@@ -84,7 +87,7 @@ class DataSourcesController < ApplicationController
   # DELETE /data_sources/1
   # DELETE /data_sources/1.json
   def destroy
-    authorize! :destroy, @user, message: 'Not authorized as an administrator.'
+    authorize! :destroy, DataSource, message: 'Not authorized as an administrator.'
 
     @data_source = DataSource.find(params[:id])
     @data_source.destroy
