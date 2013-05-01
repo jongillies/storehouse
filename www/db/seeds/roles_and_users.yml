@@ -1,6 +1,7 @@
 roles:
   - admin
   - user
+  - api
 users:
   admin:
     name: Administrator
@@ -16,3 +17,10 @@ users:
     authentication_token: ubqp35MSyko1Xzi4Bkso
     roles:
       - user
+  api:
+    name: Api User
+    email: api@example.com
+    password: changeme
+    authentication_token: z0000000000000000000
+    roles:
+      - api

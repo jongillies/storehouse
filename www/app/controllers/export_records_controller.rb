@@ -29,6 +29,8 @@ class ExportRecordsController < ApplicationController
   def create
     @export_record = ExportRecord.new(params[:export_record])
 
+    authorize! :create, @export_record, message: 'Not authorized as an administrator.'
+
     respond_to do |format|
       if @export_record.save
         format.html { redirect_to @export_record, notice: 'Export set was successfully created.' }

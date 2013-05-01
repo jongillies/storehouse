@@ -6,6 +6,14 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     end
+
+    if user.has_role?(:api)
+      can :create, ExportRun
+      can :update, ExportRun
+      can :create, ExportRecord
+      can :update, ExportRecord
+    end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
