@@ -33,10 +33,8 @@ class ExportRecordsController < ApplicationController
 
     respond_to do |format|
       if @export_record.save
-        format.html { redirect_to @export_record, notice: 'Export set was successfully created.' }
         format.json { render json: @export_record, status: :created, location: @export_record }
       else
-        format.html { render action: "new" }
         format.json { render json: @export_record.errors, status: :unprocessable_entity }
       end
     end
