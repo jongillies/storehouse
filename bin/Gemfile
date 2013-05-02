@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+source 'https://gems.apollogrp.edu'
+
+gem 'rest-client'
+gem 'crack'
+gem 'moneta'
+gem 'redis'
+gem 'bson_ext'
+gem 'mongodb'
+
