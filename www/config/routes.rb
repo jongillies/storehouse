@@ -1,5 +1,8 @@
 Storehouse::Application.routes.draw do
 
+  resources :blobs
+
+
   resources :export_records
   resources :export_runs
   resources :data_sources

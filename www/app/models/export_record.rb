@@ -7,4 +7,6 @@ class ExportRecord < ActiveRecord::Base
   belongs_to :export_run
   belongs_to :data_source
 
+  belongs_to :blob, foreign_key: :checksum
+
 end

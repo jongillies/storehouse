@@ -20,9 +20,8 @@
   <dt><strong><%= model_class.human_attribute_name(:record_size).titleize %>:</strong></dt>
   <dd><%= @export_record.record_size %></dd>
 
-  <!--<dt><strong>Duplicity:</strong></dt>-->
-  <!--<dd><%= link_to ExportRecord.select('checksum, data_source_id').where("checksum = ?",@export_record.checksum).uniq.count, export_records_path(:q => {:checksum_eq => @export_record.checksum}) %></dd>-->
-
+  <dt><strong>Data:</strong></dt>
+  <dd><%= @export_record.blob.data %></dd>
 
 </dl>
 

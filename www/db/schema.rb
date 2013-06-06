@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430220726) do
+ActiveRecord::Schema.define(:version => 20130606163143) do
+
+  create_table "blobs", :force => true do |t|
+    t.string   "checksum"
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"
@@ -24,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20130430220726) do
     t.string   "cron_schedule"
     t.text     "secondary_stores"
   end
+
+  create_table "export_blobs", :force => true do |t|
+    t.string   "checksum"
+    t.text     "blob"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "export_blobs", ["checksum"], :name => "index_export_blobs_on_checksum"
 
   create_table "export_records", :force => true do |t|
     t.integer  "record_size"
