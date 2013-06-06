@@ -7,7 +7,10 @@ class ExportRunsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @export_runs }
+      format.json do
+        authorize! :read, ExportRun, message: 'Not authorized for API use.'
+        render json: @export_runs
+      end
     end
   end
 
@@ -27,7 +30,7 @@ class ExportRunsController < ApplicationController
   def create
     @export_run = ExportRun.new(params[:export_run])
 
-    authorize! :create, @export_run, message: 'Not authorized as an administrator.'
+    authorize! :create, ExportRun, message: 'Not authorized as an administrator.'
 
     respond_to do |format|
       if @export_run.save

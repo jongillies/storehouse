@@ -6,7 +6,10 @@ class BlobsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @blobs }
+      format.json do
+        authorize! :read, Blob, message: 'Not authorized for API use.'
+        render json: @blobs
+      end
     end
   end
 
@@ -17,30 +20,19 @@ class BlobsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @blob }
+      format.json do
+        authorize! :read, Blob, message: 'Not authorized for API use.'
+        render json: @blob
+      end
     end
-  end
-
-  # GET /blobs/new
-  # GET /blobs/new.json
-  def new
-    @blob = Blob.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @blob }
-    end
-  end
-
-  # GET /blobs/1/edit
-  def edit
-    @blob = Blob.find(params[:id])
   end
 
   # POST /blobs
   # POST /blobs.json
   def create
     @blob = Blob.new(params[:blob])
+
+    authorize! :create, Blob, message: 'Not authorized as an administrator.'
 
     respond_to do |format|
       if @blob.save
@@ -58,6 +50,8 @@ class BlobsController < ApplicationController
   def update
     @blob = Blob.find(params[:id])
 
+    authorize! :update, Blob, message: 'Not authorized as an administrator.'
+
     respond_to do |format|
       if @blob.update_attributes(params[:blob])
         format.html { redirect_to @blob, notice: 'Blob was successfully updated.' }
@@ -73,6 +67,9 @@ class BlobsController < ApplicationController
   # DELETE /blobs/1.json
   def destroy
     @blob = Blob.find(params[:id])
+
+    authorize! :destroy, Blob, message: 'Not authorized as an administrator.'
+
     @blob.destroy
 
     respond_to do |format|

@@ -9,7 +9,10 @@ class ExportRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @export_records }
+      format.json do
+        authorize! :read, ExportRecord, message: 'Not authorized for API use.'
+        render json: @export_records
+      end
     end
   end
 
@@ -20,7 +23,10 @@ class ExportRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @export_record }
+      format.json do
+        authorize! :read, ExportRecord, message: 'Not authorized for API use.'
+        render json: @export_record
+      end
     end
   end
 
@@ -29,7 +35,7 @@ class ExportRecordsController < ApplicationController
   def create
     @export_record = ExportRecord.new(params[:export_record])
 
-    authorize! :create, @export_record, message: 'Not authorized as an administrator.'
+    authorize! :create, ExportRecord, message: 'Not authorized as an administrator.'
 
     respond_to do |format|
       if @export_record.save
