@@ -6,12 +6,10 @@ Storehouse::Application.routes.draw do
   resources :export_runs
   resources :data_sources
 
-  #namespace 'api' do
-  #  resources :data_sources
-  #end
-
-  api :version => 1 do
-    resources :data_sources
+  namespace :api do
+    api :version => 1 do
+      resources :data_sources
+    end
   end
 
   authenticated :user do
