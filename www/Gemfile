@@ -36,3 +36,7 @@ gem 'twitter-bootstrap-rails', '>= 2.2.6'
 gem 'bootswatch-rails', '>= 0.4.0'
 
 gem 'active_model_serializers'
+
+gem 'rocket_pants'
+gem 'will_paginate'
+

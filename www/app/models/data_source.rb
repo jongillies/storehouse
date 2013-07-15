@@ -9,6 +9,8 @@ class DataSource < ActiveRecord::Base
   has_many :export_runs, :dependent => :destroy
   has_many :export_records, :dependent => :destroy
 
+  include RocketPants::Cacheable
+
   # Exclude protected attributes from json output.
   #def to_json(options={})
   #  options[:except] ||=  [ :primary_store, :secondary_stores, :cron_schedule ]
