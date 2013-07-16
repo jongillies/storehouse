@@ -3,7 +3,9 @@ class Blob < ActiveRecord::Base
 
   validates :checksum, :presence => true, :uniqueness => true
 
-  set_primary_key :checksum
+  # DEPRECATION WARNING: Calling set_primary_key is deprecated. Please use `self.primary_key = 'the_name'` instead. (called from <class:Blob> at /Users/jxgillie/repos/github/jongillies/storehouse/www/app/models/blob.rb:6)
+  # set_primary_key :checksum
+  self.primary_key = :checksum
 
   has_many :export_records, foreign_key: :checksum
 
