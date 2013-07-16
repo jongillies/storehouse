@@ -14,11 +14,13 @@
 ActiveRecord::Schema.define(:version => 20130606163143) do
 
   create_table "blobs", :force => true do |t|
-    t.string   "checksum"
-    t.text     "data"
+    t.string   "checksum",   :null => false
+    t.text     "data",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "blobs", ["checksum"], :name => "index_blobs_on_checksum", :unique => true
 
   create_table "data_sources", :force => true do |t|
     t.string   "name"

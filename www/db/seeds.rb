@@ -43,6 +43,6 @@ YAML::load_file('db/seeds/export_records.yml').each do |export_record|
 end
 
 YAML::load_file('db/seeds/blobs.yml').each do |blob|
-  b = Blob.find_or_create_by_id(blob, :without_protection => true)
+  b = Blob.find_or_create_by_checksum(blob, :without_protection => true)
   puts "Blob> #{b.created_at}"
 end
