@@ -5,7 +5,6 @@ class CreateJoinTableBetweenRunsAndSets < ActiveRecord::Migration
       t.integer :export_run_id
     end
 
-    add_index :export_sets_export_runs, [:export_set_id, :export_run_id]
   end
 
   def self.down
