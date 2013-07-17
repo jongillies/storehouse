@@ -5,7 +5,24 @@ describe ExportRun do
   describe 'create export run' do
 
     before(:each) do
-      @attr = {
+      @data_source = {
+          :name => "Data Set 1",
+          :contact => "user@example.com",
+          :description => "description",
+      }
+
+      DataSource.create!(@data_source)
+
+      @export_run = {
+          record_count: 100,
+          id: 1,
+          data_source_id: 1,
+          started_at: Time.now,
+          finished_at: Time.now
+      }
+
+      ExportRun.create!(@export_run)
+      @export_record = {
           record_count: 100,
           data_source_id: 1,
           started_at: Time.now,
@@ -14,7 +31,7 @@ describe ExportRun do
     end
 
     it 'should create a new instance given valid attributes' do
-      ExportRun.create!(@attr)
+      ExportRun.create!(@export_record)
     end
 
     it 'should fail missing required data_source_id' do
@@ -26,7 +43,7 @@ describe ExportRun do
   private
 
   def check_required_field(field)
-    attr = @attr.clone
+    attr = @export_record.clone
 
     er = ExportRun.create!(attr)
 

@@ -3,19 +3,19 @@ require 'spec_helper'
 describe Blob do
 
   before(:each) do
-    @attr = {
+    @export_record = {
         checksum: '0000000',
         data: 'user@example.com'
     }
   end
 
   it 'should create a new blob given valid attributes' do
-    Blob.create!(@attr)
+    Blob.create!(@export_record)
   end
 
   it 'should fail when trying to create a blog with the same checksum' do
-    Blob.create!(@attr)
-    lambda { Blob.create!(@attr) }.should raise_error(ActiveRecord::RecordInvalid)
+    Blob.create!(@export_record)
+    lambda { Blob.create!(@export_record) }.should raise_error(ActiveRecord::RecordInvalid)
   end
 
   it 'should fail when there is no checksum' do

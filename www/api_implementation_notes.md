@@ -27,7 +27,7 @@ Validation:
 
   If you create multiple export_run's for the the same data_source ad the same time, shame on you!
 
-* As the "export run id" is the key for adding export records, no contention
+  As the "export run id" is the key for adding export records, no contention
 
 * To create an export_record the export_run (specified by the epxort_run_id) must have nil value for the finished_at, else error: This run is over!
 

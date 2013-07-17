@@ -4,7 +4,7 @@ describe ExportRecord do
   describe 'create export record' do
 
     before(:each) do
-      @attr = {
+      @export_record = {
           record_size: 100,
           checksum: 'zero',
           location_pointer: 'somewhere',
@@ -12,18 +12,32 @@ describe ExportRecord do
           export_run_id: 1,
           data_source_id: 1
       }
+
+      @data_source = {
+          :name => "Data Set 1",
+          :contact => "user@example.com",
+          :description => "description",
+      }
+
+      DataSource.create!(@data_source)
+      @export_run = {
+          record_count: 100,
+          id: 1,
+          data_source_id: 1,
+          started_at: Time.now,
+          finished_at: Time.now
+      }
+
+      ExportRun.create!(@export_run)
+
     end
 
     it 'should create a new instance given valid attributes' do
-      ExportRecord.create!(@attr)
+      ExportRecord.create!(@export_record)
     end
 
     it 'should fail missing required checksum' do
       check_required_field :checksum
-    end
-
-    it 'should fail missing required location_pointer' do
-      check_required_field :location_pointer
     end
 
     it 'should fail missing required primary_key' do
@@ -41,7 +55,7 @@ describe ExportRecord do
     private
 
     def check_required_field(field)
-      attr = @attr.clone
+      attr = @export_record.clone
 
       er = ExportRecord.create!(attr)
 

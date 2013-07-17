@@ -7,7 +7,7 @@ class ExportRun < ActiveRecord::Base
 
   before_save :update_duration
 
-  validates :data_source_id, :presence => true
+  validates :data_source, presence: true
 
   private
 
