@@ -12,6 +12,10 @@ class ExportRecord < ActiveRecord::Base
   validates :export_run, presence: true
   validates :data_source, presence: true
 
+
+  # TODO Should not be able to create an export record if ( export_run, data_source and checksum)
+  #      already exists
+
   before_create :validate_record
 
   #def as_json(options={})
