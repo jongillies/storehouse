@@ -36,12 +36,4 @@ class Api::ExportRunsController < RocketPants::Base
     expose @export_run
   end
 
-  def destroy
-    authorize! :destroy, ExportRun, message: 'Not authorized as an administrator.'
-
-    @export_run = ExportRun.find(params[:id])
-    @export_run.destroy
-
-  end
-
 end

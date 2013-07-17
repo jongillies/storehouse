@@ -26,21 +26,4 @@ class Api::ExportRecordsController < RocketPants::Base
     expose ExportRecord.create!(params[:export_record]), status: :created
   end
 
-  def update
-    authorize! :update, ExportRecord, message: 'Not authorized as an administrator.'
-
-    @export_record = ExportRecord.find(params[:id])
-
-    @export_record.update_attributes(params[:export_record])
-
-    expose @export_record
-  end
-
-  def destroy
-    authorize! :destroy, ExportRecord, message: 'Not authorized as an administrator.'
-
-    @export_record = ExportRecord.find(params[:id])
-    @export_record.destroy
-  end
-
 end
