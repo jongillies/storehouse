@@ -46,7 +46,6 @@ class Api::DataSourcesController < RocketPants::Base
     @data_source = DataSource.find(params[:id])
     @data_source.destroy
 
-    redirect_to data_source_path version: 1
   end
 
 end
