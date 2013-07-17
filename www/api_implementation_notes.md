@@ -11,7 +11,8 @@ General procedure:
     * Must specify:
      * record_size
      * export_run_id
-     * checksum      * primary_key
+     * checksum
+     * primary_key
      * data_source_id ???
      * data
 * Finish an export_run
