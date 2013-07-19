@@ -12,11 +12,9 @@ class ExportRecord < ActiveRecord::Base
   validates :export_run, presence: true
   validates :data_source, presence: true
 
+  after_validation :validate_record
 
-  # TODO Should not be able to create an export record if ( export_run, data_source and checksum)
-  #      already exists
-
-  before_create :validate_record
+  accepts_nested_attributes_for :blob
 
   #def as_json(options={})
   #  {:record_size => self.record_size,
@@ -31,6 +29,12 @@ class ExportRecord < ActiveRecord::Base
   private
 
   def validate_record
+    my_export_run = ExportRun.find_by_id(self.export_run_id)
+
+    unless my_export_run.finished_at.nil?
+      errors.add(:export_run_id, 'this export run has already been completed.')
+    end
 
   end
+
 end
