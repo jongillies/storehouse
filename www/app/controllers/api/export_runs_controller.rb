@@ -33,7 +33,12 @@ class Api::ExportRunsController < RocketPants::Base
 
     @export_run.update_attributes(params[:export_run])
 
-    expose @export_run
+    if (@export_run.errors.count > 0) then
+      error! :forbidden
+    else
+      expose @export_run
+    end
+
   end
 
 end
