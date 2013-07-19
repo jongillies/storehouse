@@ -1,0 +1,15 @@
+- id: 1
+  finished_at: 2012-04-01 01:03:06
+  record_count: 3
+- id: 2
+  finished_at: 2012-04-02 03:46:05
+  record_count: 1
+- id: 3
+  finished_at: 2012-04-03 00:03:06
+  record_count: 300
+- id: 4
+  finished_at: 2012-04-04 04:09:07
+  record_count: 400
+- id: 5
+  finished_at: 2012-04-04 04:09:07
+  record_count: 3
