@@ -7,7 +7,13 @@ class ExportRun < ActiveRecord::Base
 
   before_save :update_duration
 
-  validates :data_source, presence: true
+  before_create :set_started_at
+
+  validates :data_source, presence: true, on: :create
+  validates :finished_at, presence: true, on: :update
+  validates :record_count, presence: true, on: :update
+
+  after_validation :validate_record
 
   private
 
@@ -17,4 +23,13 @@ class ExportRun < ActiveRecord::Base
     end
   end
 
+  def validate_record
+    unless self.finished_at_was.nil?
+        self.errors.add(:id, 'this export run has already been completed.')
+    end
+  end
+
+  def set_started_at
+    self.started_at = Time.now
+  end
 end
