@@ -50,3 +50,7 @@ end
 When(/^I am logged in as admin$/) do
   pending
 end
+
+When /^I visit (.*)$/ do |url|
+  get url
+end
