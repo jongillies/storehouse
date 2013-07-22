@@ -16,6 +16,8 @@ class ExportRecord < ActiveRecord::Base
 
   after_validation :validate_record
 
+  validates_uniqueness_of :checksum, :scope => [:export_run_id]
+
   #before_create :remove_blob_if_already_exists
 
   accepts_nested_attributes_for :blob
