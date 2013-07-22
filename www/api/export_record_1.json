@@ -1,8 +1,13 @@
 {
-   "record_size":100,
-   "checksum":"e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e",
-   "primary_key":"1",
-   "data_source_id":1,
-   "export_run_id":6,
-   "blob_attributes":{"data":"data_one", "checksum":"e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e"}
+    "export_record": {
+        "record_size": 100,
+        "checksum": "e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e",
+        "primary_key": "1",
+        "data_source_id": 1,
+        "export_run_id": 6,
+        "blob_attributes": {
+            "data": "data_one",
+            "checksum": "e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e"
+        }
+    }
 }
