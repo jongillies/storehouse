@@ -32,6 +32,11 @@ describe ExportRecord do
 
     end
 
+    it 'should fail to create a duplicate' do
+      ExportRecord.create!(@export_record)
+      lambda { ExportRecord.create!(@export_record) }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+
     it 'should create a new instance given valid attributes' do
       ExportRecord.create!(@export_record)
     end
