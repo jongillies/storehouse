@@ -24,8 +24,8 @@ describe ExportRecord do
           record_count: 100,
           id: 1,
           data_source_id: 1,
-          started_at: Time.now,
-          finished_at: Time.now
+          started_at: Time.now
+          #finished_at: Time.now
       }
 
       ExportRun.create!(@export_run)

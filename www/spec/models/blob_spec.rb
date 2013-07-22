@@ -15,7 +15,7 @@ describe Blob do
 
   it 'should fail when trying to create a blog with the same checksum' do
     Blob.create!(@export_record)
-    lambda { Blob.create!(@export_record) }.should raise_error(ActiveRecord::RecordInvalid)
+    lambda { Blob.create!(@export_record) }.should raise_error(ActiveRecord::RecordNotUnique)
   end
 
   it 'should fail when there is no checksum' do

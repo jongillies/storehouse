@@ -44,6 +44,8 @@ class ExportRecord < ActiveRecord::Base
   def validate_record
     my_export_run = ExportRun.find_by_id(self.export_run_id)
 
+    return false unless my_export_run
+
     unless my_export_run.finished_at.nil?
       errors.add(:export_run_id, 'this export run has already been completed.')
     end
