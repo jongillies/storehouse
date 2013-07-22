@@ -42,13 +42,9 @@ YAML::load_file('db/seeds/export_records.yml').each do |export_record|
   puts "ExportRecord> #{er.created_at}"
 end
 
-YAML::load_file('db/seeds/blobs.yml').each do |blob|
-  b = Blob.find_or_create_by_checksum(blob, :without_protection => true)
-  puts "Blob> #{b.created_at}"
-end
-
 YAML::load_file('db/seeds/export_runs_finish.yml').each do |export_run|
   er = ExportRun.find_or_create_by_id(export_run, :without_protection => true)
+  er.update_attributes(export_run)
   puts "ExportRun> #{er.created_at}"
 end
 
