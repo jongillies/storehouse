@@ -30,27 +30,4 @@ class ExportRecordsController < ApplicationController
     end
   end
 
-  # POST /export_records
-  # POST /export_records.json
-  def create
-
-    export_record = params[:export_record]
-
-    if Blob.exists? export_record['checksum']
-      export_record.delete 'blob_attributes'
-    end
-
-    @export_record = ExportRecord.new(export_record)
-
-    authorize! :create, ExportRecord, message: 'Not authorized as an administrator.'
-
-    respond_to do |format|
-      if @export_record.save
-        format.json { render json: @export_record, status: :created, location: @export_record }
-      else
-        format.json { render json: @export_record.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
 end

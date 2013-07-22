@@ -25,20 +25,4 @@ class ExportRunsController < ApplicationController
     end
   end
 
-  # POST /export_runs
-  # POST /export_runs.json
-  def create
-    @export_run = ExportRun.new(params[:export_run])
-
-    authorize! :create, ExportRun, message: 'Not authorized as an administrator.'
-
-    respond_to do |format|
-      if @export_run.save
-        format.json { render json: @export_run, status: :created, location: @export_run }
-      else
-        format.json { render json: @export_run.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
 end
