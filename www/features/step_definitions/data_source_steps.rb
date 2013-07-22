@@ -54,3 +54,6 @@ end
 When /^I visit (.*)$/ do |url|
   get url
 end
+Then(/^It should be good$/) do
+  page
+end

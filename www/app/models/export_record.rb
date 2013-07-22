@@ -7,12 +7,16 @@ class ExportRecord < ActiveRecord::Base
 
   attr_accessible :record_size, :created_at, :checksum, :location_pointer, :primary_key, :export_run_id, :data_source_id
 
+  attr_accessible :blob_attributes
+
   validates_presence_of :checksum, :primary_key
 
   validates :export_run, presence: true
   validates :data_source, presence: true
 
   after_validation :validate_record
+
+  #before_create :remove_blob_if_already_exists
 
   accepts_nested_attributes_for :blob
 
@@ -27,6 +31,13 @@ class ExportRecord < ActiveRecord::Base
   #end
 
   private
+
+  def remove_blob_if_already_exists
+    if Blob.find_by_checksum(self.checksum)
+      self.blob = nil
+    end
+
+  end
 
   def validate_record
     my_export_run = ExportRun.find_by_id(self.export_run_id)

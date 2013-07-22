@@ -35,9 +35,9 @@
   data_source_id: 2
   checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
   location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-  blob_attributes:
-    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-    data: data_one
+#  blob_attributes:
+#    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
+#    data: data_one
 - id: 5
   record_size: 100
   primary_key: "1"
@@ -55,9 +55,9 @@
   data_source_id: 4
   checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
   location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-  blob_attributes:
-    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-    data: data_one
+#  blob_attributes:
+#    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
+#    data: data_one
 - id: 7
   record_size: 100
   primary_key: "1"
@@ -65,9 +65,9 @@
   data_source_id: 1
   checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
   location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-  blob_attributes:
-    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-    data: data_one
+#  blob_attributes:
+#    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
+#    data: data_one
 - id: 8
   record_size: 100
   primary_key: "2"
@@ -75,9 +75,9 @@
   data_source_id: 1
   checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
   location_pointer: https://tk421.s3.amazonaws.com/7448d8798a4380162d4b56f9b452e2f6f9e24e7a
-  blob_attributes:
-    checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
-    data: data_two
+#  blob_attributes:
+#    checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
+#    data: data_two
 - id: 9
   record_size: 100
   primary_key: "3"
@@ -85,8 +85,8 @@
   data_source_id: 1
   checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
   location_pointer:  https://tk421.s3.amazonaws.com/a3db5c13ff90a36963278c6a39e4ee3c22e2a436
-  blob_attributes:
-    checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
-    data: data_three
+#  blob_attributes:
+#    checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
+#    data: data_three
 
 

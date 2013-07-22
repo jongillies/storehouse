@@ -20,6 +20,7 @@ class ExportRun < ActiveRecord::Base
   def update_duration
     if !duration && finished_at && started_at
       self.duration = finished_at - started_at
+      self.duration = 0 if self.duration < 0  # Just in case the times are jacked
     end
   end
 
