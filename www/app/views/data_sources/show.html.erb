@@ -3,28 +3,46 @@
   <h2><%= t '.title', :default => model_class.model_name.human.titleize %></h2>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @data_source.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @data_source.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
-  <dd><%= @data_source.active %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact) %>:</strong></dt>
-  <dd><%= @data_source.contact %></dd>
-  <dt><strong><%= "Export Runs" %>:</strong></dt>
-  <dd><%= link_to @data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => @data_source.id}) if @data_source.export_runs %></dd>
+<table class="table table-striped">
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:name) %>:</strong></td>
+    <td><%= @data_source.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:description) %>:</strong></td>
+    <td><%= @data_source.description %></td>
+  </tr>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:active) %>:</strong></td>
+    <td><%= @data_source.active %></td>
+  </tr>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:contact) %>:</strong></td>
+    <td><%= @data_source.contact %></td>
+  </tr>
+  <tr>
+    <td><strong><%= "Export Runs" %>:</strong></td>
+    <td><%= link_to @data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => @data_source.id}) if @data_source.export_runs %></td>
+  </tr>
   <% if user_signed_in? %>
       <% if current_user.has_role? :admin %>
-          <dt><strong><%= model_class.human_attribute_name(:primary_store) %>:</strong></dt>
-          <dd><%= @data_source.primary_store %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:secondary_stores) %>:</strong></dt>
-          <dd><%= @data_source.secondary_stores %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:cron_schedule) %>:</strong></dt>
-          <dd><%= @data_source.cron_schedule %></dd>
+          <tr>
+            <td><strong><%= model_class.human_attribute_name(:primary_store) %>:</strong></td>
+            <td><%= @data_source.primary_store %></td>
+          </tr>
+          <tr>
+            <td><strong><%= model_class.human_attribute_name(:secondary_stores) %>:</strong></td>
+            <td><%= @data_source.secondary_stores %></td>
+          </tr>
+          <tr>
+            <td><strong><%= model_class.human_attribute_name(:cron_schedule) %>:</strong></td>
+            <td><%= @data_source.cron_schedule %></td>
+          </tr>
       <% end %>
   <% end %>
-</dl>
+</table>
 
 
 <div class="form-actions">

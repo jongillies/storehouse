@@ -3,27 +3,39 @@
   <h2><%= t '.title', :default => model_class.model_name.human.titleize %></h2>
 </div>
 
-<dl class="dl-horizontal">
+<table class="table table-striped">
 
-  <dt><strong>Data Source:</strong></dt>
-  <dd><%= link_to @export_record.data_source.name, @export_record.data_source %></dd>
+  <tr>
+    <td><strong>Data Source:</strong></td>
+    <td><%= link_to @export_record.data_source.name, @export_record.data_source %></td>
+  </tr>
 
-  <dt><strong><%= model_class.human_attribute_name(:primary_key).titleize %>:</strong></dt>
-  <dd><%= @export_record.primary_key %></dd>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:primary_key).titleize %>:</strong></td>
+    <td><%= @export_record.primary_key %></td>
+  </tr>
 
-  <dt><strong><%= model_class.human_attribute_name(:checksum).titleize %>:</strong></dt>
-  <dd><%= @export_record.checksum %></dd>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:checksum).titleize %>:</strong></td>
+    <td><%= @export_record.checksum %></td>
+  </tr>
 
-  <dt><strong><%= model_class.human_attribute_name(:location_pointer).titleize %>:</strong></dt>
-  <dd><%= @export_record.location_pointer %></dd>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:location_pointer).titleize %>:</strong></td>
+    <td><%= @export_record.location_pointer %></td>
+  </tr>
 
-  <dt><strong><%= model_class.human_attribute_name(:record_size).titleize %>:</strong></dt>
-  <dd><%= @export_record.record_size %></dd>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:record_size).titleize %>:</strong></td>
+    <td><%= @export_record.record_size %></td>
+  </tr>
 
-  <dt><strong>Data:</strong></dt>
-  <dd><%= @export_record.blob.data %></dd>
+  <tr>
+    <td><strong>Data:</strong></td>
+    <td><%= @export_record.blob.data %></td>
+  </tr>
 
-</dl>
+</table>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

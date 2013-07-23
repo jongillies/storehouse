@@ -1,6 +1,6 @@
 <%- model_class = ExportRecord -%>
 <div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human.titleize.pluralize %> <%= "for #{@export_run.data_source.name} at #{@export_run.started_at}" if @export_run %> </h2>
+  <h2><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %> <%= "for #{@export_run.data_source.name} at #{@export_run.started_at}" if @export_run %> </h2>
 </div>
 <table class="table table-striped">
   <thead>
@@ -20,7 +20,7 @@
         <td><%= export_record.record_size %></td>
         <td><%= link_to export_record.data_source.name, export_record.data_source %></td>
 
-        <td><%=l export_record.created_at %></td>
+        <td><%= l export_record.created_at %></td>
       </tr>
   <% end %>
   </tbody>
