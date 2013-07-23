@@ -46,18 +46,10 @@ Given(/^I exist as an administrator$/) do
   @user.add_role('admin')
 end
 
-Given /^I am a valid API user$/ do
-  create_user
-  @user.add_role('api')
-  @user.authentication_token = 'foobar'
-  sign_in
-end
-
 Given /^I do not exist as a user$/ do
   create_visitor
   delete_user
 end
-
 
 ### WHEN ###
 When /^I sign in with valid credentials$/ do

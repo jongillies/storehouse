@@ -1,3 +1,5 @@
+require 'rest-client'
+
 def create_data_source
 
   @ds1 ||= {:name => 'Data Source One',
@@ -49,11 +51,4 @@ end
 
 When(/^I am logged in as admin$/) do
   pending
-end
-
-When /^I visit (.*)$/ do |url|
-  get url
-end
-Then(/^It should be good$/) do
-  page
 end
