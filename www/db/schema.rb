@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606163143) do
+ActiveRecord::Schema.define(:version => 20130723154142) do
 
   create_table "blobs", :force => true do |t|
     t.string   "checksum",   :null => false
@@ -27,11 +27,9 @@ ActiveRecord::Schema.define(:version => 20130606163143) do
     t.text     "description"
     t.boolean  "active"
     t.string   "contact"
-    t.text     "primary_store"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "cron_schedule"
-    t.text     "secondary_stores"
   end
 
   create_table "export_records", :force => true do |t|

@@ -29,14 +29,6 @@
   <% if user_signed_in? %>
       <% if current_user.has_role? :admin %>
           <tr>
-            <td><strong><%= model_class.human_attribute_name(:primary_store) %>:</strong></td>
-            <td><%= @data_source.primary_store %></td>
-          </tr>
-          <tr>
-            <td><strong><%= model_class.human_attribute_name(:secondary_stores) %>:</strong></td>
-            <td><%= @data_source.secondary_stores %></td>
-          </tr>
-          <tr>
             <td><strong><%= model_class.human_attribute_name(:cron_schedule) %>:</strong></td>
             <td><%= @data_source.cron_schedule %></td>
           </tr>
