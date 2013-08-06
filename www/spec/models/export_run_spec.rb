@@ -6,9 +6,9 @@ describe ExportRun do
 
     before(:each) do
       @data_source = {
-          :name => "Data Set 1",
-          :contact => "user@example.com",
-          :description => "description",
+          name: 'Data Set 1',
+          contact: 'user@example.com',
+          description: 'description',
       }
 
       DataSource.create!(@data_source)
