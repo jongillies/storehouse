@@ -4,6 +4,9 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'lorem'
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
@@ -14,4 +17,22 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+end
+
+class RandomText
+  def initialize
+    @lorem_unit = 'words'
+    @max_lorems = 2000
+
+    @seed_text = Lorem::Base.new(@lorem_unit, @max_lorems).output
+
+  end
+  def output(max_output)
+    out = @seed_text.split
+    pos = rand(out.length - max_output)
+    start_pos = (pos < 0 ? 0 : pos)
+    end_pos = (pos + max_output > out.length ? out.length - max_output : pos + max_output)
+    return out[start_pos..end_pos].join(" ")
+  end
+
 end
