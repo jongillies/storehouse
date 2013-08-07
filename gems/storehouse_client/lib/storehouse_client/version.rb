@@ -1,5 +1,5 @@
 module StorehouseClient
-  VERSION = '0.0.6'
+  VERSION = '0.0.7'
   AUTHORS = ['Jon Gillies']
   EMAIL = %w(supercoder@gmail.com)
   DESCRIPTION = %q{This the API client to the Storehouse application.}
