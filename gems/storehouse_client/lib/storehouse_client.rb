@@ -7,9 +7,10 @@ require 'digest'
 
 module StorehouseClient
 
-  YAML::ENGINE.yamler = 'syck'
 
   class API
+
+    YAML::ENGINE.yamler = 'syck'
 
     attr_reader :run_id, :data_source_id, :record_count, :error, :record_count
 
@@ -100,10 +101,12 @@ module StorehouseClient
         return nil
       end
 
+      # Go figure?  When the gem is installed, the Crack::JSON will return "invalid json string" WTF?
+      # So fall back to JSON.parse if that happens?
       begin
         r = Crack::JSON.parse(result)
-      rescue Exception => @error
-        return nil
+      rescue Crack::ParseError => @error
+        r = JSON.parse(result)
       end
 
       r
@@ -114,8 +117,8 @@ module StorehouseClient
 
       begin
         r = Crack::JSON.parse(result)
-      rescue Exception => @error
-        return nil
+      rescue Crack::ParseError => @error
+        r = JSON.parse(result)
       end
       r
 
