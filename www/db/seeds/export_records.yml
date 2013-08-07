@@ -86,9 +86,7 @@
   location_pointer: https://tk421.s3.amazonaws.com/7448d8798a4380162d4b56f9b452e2f6f9e24e7a
   blob_attributes:
     checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
-    data:
-      value: data_2
-      id: 2
+    data: 5
 - id: 9
   record_size: 100
   primary_key: "3"
@@ -98,8 +96,4 @@
   location_pointer:  https://tk421.s3.amazonaws.com/a3db5c13ff90a36963278c6a39e4ee3c22e2a436
   blob_attributes:
     checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
-    data:
-      value: data_3
-      id: 3
-
-
+    data: this is just a string

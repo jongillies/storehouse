@@ -15,6 +15,8 @@ class ExportRun < ActiveRecord::Base
 
   after_validation :validate_record
 
+  include RocketPants::Cacheable
+
   private
 
   def update_duration

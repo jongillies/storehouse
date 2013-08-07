@@ -18,7 +18,7 @@ class ExportRecord < ActiveRecord::Base
 
   validates_uniqueness_of :checksum, :scope => [:export_run_id]
 
-  #before_create :remove_blob_if_already_exists
+  include RocketPants::Cacheable
 
   accepts_nested_attributes_for :blob, update_only: true
 

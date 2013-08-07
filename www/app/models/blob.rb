@@ -9,25 +9,18 @@ class Blob < ActiveRecord::Base
 
   before_validation :update_blob_data_to_json_string
 
-  # hmmm.. I guess we get to the blob via the export_record
-  # do does it need this relationship?
-  # Because the blob is created or reference upon the export_record create....
+  include RocketPants::Cacheable
 
-  #  validates :export_run, presence: true
-  #  validates :data_source, presence: true
-
-  # DEPRECATION WARNING: Calling set_primary_key is deprecated. Please use `self.primary_key = 'the_name'` instead. (called from <class:Blob> at /Users/jxgillie/repos/github/jongillies/storehouse/www/app/models/blob.rb:6)
-  # set_primary_key :checksum
   self.primary_key = :checksum
 
-
-  #def as_json(options={})
-  #  {:checksum => self.id,
-  #   :data => JSON.parse(self.data)}
-  #end
   private
 
   def update_blob_data_to_json_string
+      unless self.data.is_a?(Hash) || self.data.is_a?(Array)
+        h = {}
+        h['value'] = self.data
+        self.data = h
+      end
       self.data = self.data.to_json if self.data
   end
 
