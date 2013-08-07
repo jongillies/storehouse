@@ -6,11 +6,11 @@ require 'storehouse_client/version'
 Gem::Specification.new do |gem|
   gem.name          = 'storehouse_client'
   gem.version       = StorehouseClient::VERSION
-  gem.authors       = ['Jon Gillies']
-  gem.email         = ['supercoder@gmail.com']
-  gem.description   = %q{This the API client to the Storehouse application.}
-  gem.summary       = %q{API client to the Storehouse}
-  gem.homepage      = 'https://github.com/jongillies/storehouse'
+  gem.authors       = StorehouseClient::AUTHORS
+  gem.email         = StorehouseClient::EMAIL
+  gem.description   = StorehouseClient::DESCRIPTION
+  gem.summary       = StorehouseClient::SUMMARY
+  gem.homepage      = StorehouseClient::HOMEPAGE
 
   gem.files = Dir['Rakefile', 'Gemfile', '{bin,lib,man,test,spec}/**/*', 'README*', 'LICENSE*']
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
