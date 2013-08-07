@@ -22,15 +22,15 @@ class ExportRecord < ActiveRecord::Base
 
   accepts_nested_attributes_for :blob
 
-  #def as_json(options={})
-  #  {:record_size => self.record_size,
-  #   :created_at => self.created_at,
-  #   :export_run_id => self.export_run_id,
-  #   :checksum => self.checksum,
-  #   :primary_key => self.primary_key,
-  #   :data_source_id => self.data_source_id,
-  #   :data => self.blob.data}
-  #end
+  def as_json(options={})
+    {:record_size => self.record_size,
+     :created_at => self.created_at,
+     :export_run_id => self.export_run_id,
+     :checksum => self.checksum,
+     :primary_key => self.primary_key,
+     :data_source_id => self.data_source_id,
+     :data => JSON.parse(self.blob.data)}
+  end
 
   private
 
