@@ -3,7 +3,7 @@ class ExportRunsController < ApplicationController
   # GET /export_runs.json
   def index
     @search = ExportRun.search(params[:q])
-    @export_runs  = @search.result.order(:started_at).page params[:page]
+    @export_runs  = @search.result.order('started_at DESC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

@@ -3,7 +3,7 @@ class ExportRecordsController < ApplicationController
   # GET /export_records.json
   def index
     @search = ExportRecord.search(params[:q])
-    @export_records  = @search.result.order(:created_at).page params[:page]
+    @export_records  = @search.result.order('created_at DESC').page params[:page]
 
     @export_run = ExportRun.find_by_id(params[:export_run_id])
 

@@ -1,7 +1,8 @@
 class BlobsController < ApplicationController
 
   def index
-    @blobs = Blob.all
+    @search = Blob.search(params[:q])
+    @blobs  = @search.result.order('created_at DESC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
