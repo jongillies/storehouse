@@ -68,6 +68,14 @@ module StorehouseClient
 
     def add_record(primary_key, data)
 
+      # primary_key must be a string
+      # data must be a JSON string
+
+      unless data.class == String
+        data = data.to_json
+      end
+
+
       e = {}
       e['export_record'] = {}
       e['export_record']['blob_attributes'] = {}
@@ -75,7 +83,7 @@ module StorehouseClient
       e['export_record']['blob_attributes']['checksum'] = Digest::SHA256.hexdigest(data)
       e['export_record']['record_size'] = e['export_record']['blob_attributes']['data'].length
       e['export_record']['checksum'] = e['export_record']['blob_attributes']['checksum']
-      e['export_record']['primary_key'] = primary_key
+      e['export_record']['primary_key'] = primary_key.to_s # Ensure primary key is a string
       e['export_record']['data_source_id'] = @data_source_id
       e['export_record']['export_run_id'] = @run_id
 

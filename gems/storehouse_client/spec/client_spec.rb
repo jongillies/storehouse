@@ -87,6 +87,18 @@ describe 'Starting and Stopping Runs' do
 
 end
 
+describe 'Add records and ensure types are converted properly' do
+
+  it 'should ensure the primary key is a string' do
+
+  end
+
+  it 'should convert the "data" to JSON if it is not a string' do
+
+  end
+
+end
+
 describe 'Adding Export Records' do
 
   it 'should add unique export records' do
