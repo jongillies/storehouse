@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    storehouse_client (0.0.5)
+    storehouse_client (0.0.6)
       crack
       rest-client
 
