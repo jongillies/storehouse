@@ -75,7 +75,7 @@ module StorehouseClient
       e['export_record']['blob_attributes'] = {}
       e['export_record']['blob_attributes']['data'] = data
       e['export_record']['blob_attributes']['checksum'] = Digest::SHA256.hexdigest(data.to_json)
-      e['export_record']['record_size'] = e['export_record']['blob_attributes']['data'].length
+      e['export_record']['record_size'] = data.to_json.length
       e['export_record']['checksum'] = e['export_record']['blob_attributes']['checksum']
       e['export_record']['primary_key'] = primary_key.to_s # Ensure primary key is a string
       e['export_record']['data_source_id'] = @data_source_id
