@@ -14,7 +14,7 @@
   <% @blobs.each do |blob| %>
       <tr>
         <td><%= link_to blob.id, blob_path(blob) %></td>
-        <td><%= blob.data %></td>
+        <td><%= truncate blob.data %></td>
         <td><%= l blob.created_at %></td>
       </tr>
   <% end %>

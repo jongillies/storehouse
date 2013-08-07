@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <td><strong><%= model_class.human_attribute_name(:data) %>:</strong></td>
-    <td><%= @blob.data %></td>
+    <td><pre class="prettyprint"><%= JSON.pretty_generate(JSON.parse(@blob.data)) %></pre></td>
   </tr>
 </table>
 

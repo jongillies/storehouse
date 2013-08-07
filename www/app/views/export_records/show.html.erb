@@ -32,7 +32,7 @@
 
   <tr>
     <td><strong>Data:</strong></td>
-    <td><%= @export_record.blob.data %></td>
+    <td><pre class="prettyprint"><%= JSON.pretty_generate(JSON.parse(@export_record.blob.data)) %></pre></td>
   </tr>
 
 </table>
