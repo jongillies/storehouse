@@ -59,7 +59,7 @@ module StorehouseClient
       run['export_run']['finished_at'] = Time.now.to_s
       run['export_run']['record_count'] = @record_count
 
-      post("api/#{@api_version}/export_runs/#{@run_id}?auth_token=#{@auth_token}", run)
+      put("api/#{@api_version}/export_runs/#{@run_id}?auth_token=#{@auth_token}", run)
 
       return nil if error?
 
@@ -74,7 +74,6 @@ module StorehouseClient
       unless data.class == String
         data = data.to_json
       end
-
 
       e = {}
       e['export_record'] = {}
@@ -101,6 +100,20 @@ module StorehouseClient
     def post(path, data)
       begin
         result = @resource[path].post data.to_json, content_type: :json, accept: :json
+      rescue RestClient::Unauthorized => @error
+        return nil
+      rescue RestClient::UnprocessableEntity => @error
+        return nil
+      rescue RestClient::ResourceNotFound => @error
+        return nil
+      end
+
+      parse_result result
+    end
+
+    def put(path, data)
+      begin
+        result = @resource[path].put data.to_json, content_type: :json, accept: :json
       rescue RestClient::Unauthorized => @error
         return nil
       rescue RestClient::UnprocessableEntity => @error
