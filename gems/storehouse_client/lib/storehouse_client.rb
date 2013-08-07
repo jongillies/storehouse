@@ -101,27 +101,32 @@ module StorehouseClient
         return nil
       end
 
+      parse_result result
+    end
+
+    def get(path)
+      begin
+        result = @resource[path].get content_type: :json, accept: :json
+      rescue RestClient::Unauthorized => @error
+        return nil
+      rescue RestClient::ResourceNotFound => @error
+        return nil
+      end
+
+      parse_result result
+    end
+
+    def parse_result(result)
       # Go figure?  When the gem is installed, the Crack::JSON will return "invalid json string" WTF?
       # So fall back to JSON.parse if that happens?
       begin
         r = Crack::JSON.parse(result)
-      rescue Crack::ParseError => @error
+      rescue Crack::ParseError
         r = JSON.parse(result)
+      rescue Exception => @error
       end
 
       r
-    end
-
-    def get(path)
-      result = @resource[path].get content_type: :json, accept: :json
-
-      begin
-        r = Crack::JSON.parse(result)
-      rescue Crack::ParseError => @error
-        r = JSON.parse(result)
-      end
-      r
-
     end
 
     def get_run(run_id)
