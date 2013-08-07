@@ -23,14 +23,7 @@ class Api::ExportRecordsController < RocketPants::Base
   def create
     authorize! :create, ExportRecord, message: 'Not authorized as an administrator.'
 
-    # Remove nested resource of blob_attributes if it already exists.
-    # This should really be in the model, but I can't figure out how..
-
     export_record = params[:export_record]
-
-    if Blob.exists? export_record['checksum']
-      export_record.delete 'blob_attributes'
-    end
 
     expose ExportRecord.create!(export_record), status: :created
   end

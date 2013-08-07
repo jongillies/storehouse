@@ -7,7 +7,9 @@
   location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
   blob_attributes:
     checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-    data: '{"value":"data_one"}'
+    data:
+      value: data_one
+      id: 1
 - id: 2
   record_size: 100
   primary_key: "2"
@@ -17,7 +19,9 @@
   location_pointer: https://tk421.s3.amazonaws.com/7448d8798a4380162d4b56f9b452e2f6f9e24e7a
   blob_attributes:
     checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
-    data: '{"value":"data_two"}'
+    data:
+      value: data_two
+      id: 2
 - id: 3
   record_size: 100
   primary_key: "3"
@@ -35,9 +39,10 @@
   data_source_id: 2
   checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
   location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-#  blob_attributes:
-#    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-#    data: data_one
+  blob_attributes:
+    data:
+      value: data_one
+      id: 1
 - id: 5
   record_size: 100
   primary_key: "1"
@@ -47,7 +52,9 @@
   location_pointer:  https://tk421.s3.amazonaws.com/5d9474c0309b7ca09a182d888f73b37a8fe1362c
   blob_attributes:
     checksum: 5d9474c0309b7ca09a182d888f73b37a8fe1362c
-    data: '{"value":"data_four"}'
+    data:
+      value: data_four
+      id: 4
 - id: 6
   record_size: 100
   primary_key: "One"
@@ -55,9 +62,10 @@
   data_source_id: 4
   checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
   location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-#  blob_attributes:
-#    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-#    data: data_one
+  blob_attributes:
+    data:
+      value: data_one
+      id: 1
 - id: 7
   record_size: 100
   primary_key: "1"
@@ -65,9 +73,10 @@
   data_source_id: 1
   checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
   location_pointer:  https://tk421.s3.amazonaws.com/e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-#  blob_attributes:
-#    checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
-#    data: data_one
+  blob_attributes:
+    data:
+      value: data_one
+      id: 1
 - id: 8
   record_size: 100
   primary_key: "2"
@@ -75,9 +84,11 @@
   data_source_id: 1
   checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
   location_pointer: https://tk421.s3.amazonaws.com/7448d8798a4380162d4b56f9b452e2f6f9e24e7a
-#  blob_attributes:
-#    checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
-#    data: data_two
+  blob_attributes:
+    checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
+    data:
+      value: data_2
+      id: 2
 - id: 9
   record_size: 100
   primary_key: "3"
@@ -85,8 +96,10 @@
   data_source_id: 1
   checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
   location_pointer:  https://tk421.s3.amazonaws.com/a3db5c13ff90a36963278c6a39e4ee3c22e2a436
-#  blob_attributes:
-#    checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
-#    data: data_three
+  blob_attributes:
+    checksum: a3db5c13ff90a36963278c6a39e4ee3c22e2a436
+    data:
+      value: data_3
+      id: 3
 
 

@@ -20,7 +20,7 @@ class ExportRecord < ActiveRecord::Base
 
   #before_create :remove_blob_if_already_exists
 
-  accepts_nested_attributes_for :blob
+  accepts_nested_attributes_for :blob, update_only: true
 
   def as_json(options={})
     {:record_size => self.record_size,
