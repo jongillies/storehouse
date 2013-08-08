@@ -20,7 +20,7 @@ class ExportRun < ActiveRecord::Base
   private
 
   def update_duration
-    if !duration && finished_at && started_at
+    unless finished_at.nil?
       self.duration = finished_at - started_at
       self.duration = 0 if self.duration < 0  # Just in case the times are jacked
     end
@@ -33,6 +33,6 @@ class ExportRun < ActiveRecord::Base
   end
 
   def set_started_at
-    self.started_at = Time.now
+    self.started_at = Time.now if self.started_at.nil?
   end
 end

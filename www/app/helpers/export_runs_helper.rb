@@ -13,9 +13,11 @@ module ExportRunsHelper
             :class  => klass
   end
 
-  def running?(export_run)
+  def duration(export_run)
     if export_run.finished_at.nil?
-      '(Running)'
+      "#{time_ago_in_words(export_run.started_at)} (Running)"
+    else
+      "#{export_run.duration} seconds or #{distance_of_time_in_words(export_run.duration)}"
     end
   end
 

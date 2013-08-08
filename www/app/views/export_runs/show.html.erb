@@ -16,7 +16,7 @@
 
   <tr>
     <td><strong><%= model_class.human_attribute_name(:duration) %>:</strong></td>
-    <td><%= @export_run.duration %> seconds or <%= distance_of_time_in_words(@export_run.duration) %></td>
+    <td><%= duration(@export_run) %></td>
   </tr>
 
   <tr>
