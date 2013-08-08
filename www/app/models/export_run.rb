@@ -3,7 +3,7 @@ class ExportRun < ActiveRecord::Base
   attr_accessible :data_source_id, :finished_at, :record_count, :started_at, :duration
 
   belongs_to :data_source
-  has_many :export_records
+  has_many :export_records, dependent: :destroy
 
   before_save :update_duration
 

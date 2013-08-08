@@ -20,13 +20,8 @@
   <tbody>
   <% @export_runs.each do |export_run| %>
       <tr>
-        <td><%= link_to export_run.started_at || "#{export_run.created_at} running", export_run_path(export_run) %></td>
-        <td><%= if export_run.duration
-                  export_run.duration/60
-                else
-                  time_ago_in_words(export_run.created_at)
-                end
-        %></td>
+        <td><%= link_to export_run.started_at, export_run_path(export_run) %></td>
+        <td><%= "#{time_ago_in_words(export_run.created_at)} #{running?(export_run)}"%></td>
         <td><%= link_to export_run.data_source.name, data_source_path(export_run.data_source) %></td>
         <td><%= link_to export_run.export_records.count, export_records_path(:q => {:export_run_id_eq => export_run.id}, params: {export_run_id: export_run.id}) if export_run.export_records %>
         <td><%= l export_run.created_at %></td>

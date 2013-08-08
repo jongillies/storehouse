@@ -25,4 +25,18 @@ class ExportRunsController < ApplicationController
     end
   end
 
+  # DELETE /data_sources/1
+  # DELETE /data_sources/1.json
+  def destroy
+    authorize! :destroy, ExportRun, message: 'Not authorized as an administrator.'
+
+    @export_run = ExportRun.find(params[:id])
+    @export_run.destroy
+
+    respond_to do |format|
+      format.html { redirect_to export_runs_url }
+      format.json { head :no_content }
+    end
+  end
+
 end

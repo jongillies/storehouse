@@ -22,10 +22,6 @@ describe Blob do
     lambda { Blob.create!({ data: 'my_data'}) }.should raise_error(ActiveRecord::RecordInvalid)
   end
 
-  it 'should fail when there is no data' do
-    lambda { Blob.create!({ checksum: 'my_checksum'}) }.should raise_error(ActiveRecord::RecordInvalid)
-  end
-
   it 'should fail when there are no fields' do
     lambda { Blob.create!({ }) }.should raise_error(ActiveRecord::RecordInvalid)
   end

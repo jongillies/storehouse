@@ -41,10 +41,10 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               data_sources_path, :class => 'btn' %>
   <% if can? :edit, @data_source %>
-      <%= link_to_edit(@data_source) %>
+      <%= link_to_data_source_edit(@data_source) %>
   <% end %>
   <% if can? :destroy, @data_source %>
-      <%= link_to_destroy(@data_source) %>
+      <%= link_to_data_source_destroy(@data_source) %>
   <% end %>
 
 </div>

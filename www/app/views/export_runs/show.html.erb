@@ -34,4 +34,7 @@
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               export_runs_path, :class => 'btn' %>
+  <% if can? :destroy, @export_run %>
+      <%= link_to_export_run_destroy(@export_run) %>
+  <% end %>
 </div>
