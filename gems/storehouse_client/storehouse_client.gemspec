@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'lorem'
+  gem.add_development_dependency 'gemcutter'
   gem.add_runtime_dependency 'rest-client'
   gem.add_runtime_dependency 'crack'
 
