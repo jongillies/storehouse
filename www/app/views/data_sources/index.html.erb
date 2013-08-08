@@ -19,6 +19,7 @@
     <th><%= sort_link @search, :active, "Active" %></th>
     <th><%= sort_link @search, :contact, "Contact" %></th>
     <th>Export Runs</th>
+    <th>~Magnitude</th>
     <th>Latest Export</th>
   </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td><%= data_source.active %></td>
         <td><%= data_source.contact %></td>
         <td><%= link_to data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => data_source.id}) if data_source.export_runs %>
+        <td><%= last_export_run_record_count(data_source.id) %>
         <td><%= data_source.export_runs.last.started_at if data_source.export_runs.count > 0 %></td>
       </tr>
   <% end %>

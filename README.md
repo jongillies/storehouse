@@ -1,9 +1,5 @@
 Snapshot data sources and keep them forever!
 
-# TODO
-
-    * Add Edit button to users, be able to change auth_token
-
 # StoreHouse
 
 StoreHouse is a set of code that will allow you to take snapshots of any selected data source and store it for later analysis.  You might call it an "historical object cache".
