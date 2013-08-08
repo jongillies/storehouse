@@ -12,7 +12,7 @@ module StorehouseClient
 
     YAML::ENGINE.yamler = 'syck'
 
-    attr_reader :run_id, :data_source_id, :record_count, :error, :record_count
+    attr_reader :run_id, :data_source_id, :record_count, :error, :record_count, :duration
 
     def initialize(args)
 
@@ -21,6 +21,7 @@ module StorehouseClient
       @api_version = args.fetch(:api_version) { 1 }
       @auth_token = args.fetch(:auth_token) { raise 'You must provide :auth_token' }
       @record_count = 0
+      @duration = nil
 
       @resource = RestClient::Resource.new @url
 
@@ -59,9 +60,11 @@ module StorehouseClient
       run['export_run']['finished_at'] = Time.now.to_s
       run['export_run']['record_count'] = @record_count
 
-      put("api/#{@api_version}/export_runs/#{@run_id}?auth_token=#{@auth_token}", run)
+      r = put("api/#{@api_version}/export_runs/#{@run_id}?auth_token=#{@auth_token}", run)
 
       return nil if error?
+
+      @duration = r['response']['duration']
 
       self
     end
