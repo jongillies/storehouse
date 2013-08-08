@@ -6,6 +6,11 @@
 <table class="table table-striped">
 
   <tr>
+    <td><strong>Export Run:</strong></td>
+    <td><%= link_to @export_record.export_run.started_at, @export_record.export_run %></td>
+  </tr>
+
+  <tr>
     <td><strong>Data Source:</strong></td>
     <td><%= link_to @export_record.data_source.name, @export_record.data_source %></td>
   </tr>

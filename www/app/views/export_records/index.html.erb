@@ -25,11 +25,11 @@
   <% @export_records.each do |export_record| %>
       <tr>
         <td><%= link_to export_record.primary_key, export_record %></td>
-        <td><%= export_record.checksum %></td>
+        <td><%= link_to export_record.checksum, export_record %></td>
         <td><%= export_record.record_size %></td>
         <td><%= link_to export_record.data_source.name, export_record.data_source %></td>
 
-        <td><%= l export_record.created_at %></td>
+        <td><%= link_to export_record.created_at, export_record.export_run %></td>
       </tr>
   <% end %>
   </tbody>
