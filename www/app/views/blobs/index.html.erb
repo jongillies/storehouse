@@ -2,6 +2,15 @@
 <div class="page-header">
   <h1><%= t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+
+<%= search_form_for @search, :html => {:class => "form-inline"} do |f| %>
+    <%= f.text_field :data_cont %>
+    <%= f.submit "Search", :name => nil, :class => "btn" %>
+    <%= f.submit "Clear", :name => nil, :class => "btn", :id => :q_reset %>
+    <span class="badge"><%= @search.result.count %></span> of
+    <span class="badge badge-inverse"><%= Blob.count %></span>
+<% end %>
+
 <table class="table table-striped">
   <thead>
   <tr>
