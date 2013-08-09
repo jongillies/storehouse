@@ -1,0 +1,46 @@
+<%- model_class = DataSource -%>
+<div class="page-header">
+  <h2><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %></h2>
+</div>
+
+<%= search_form_for @search, :html => {:class => "form-inline"} do |f| %>
+    <%= f.text_field :name_or_contact_or_description_cont %>
+    <%= f.submit "Search", :name => nil, :class => "btn" %>
+    <%= f.submit "Clear", :name => nil, :class => "btn", :id => :q_reset %>
+    <span class="badge"><%= @search.result.count %></span> of
+    <span class="badge badge-inverse"><%= DataSource.count %></span>
+
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= sort_link @search, :name, "Name" %></th>
+    <th><%= sort_link @search, :active, "Active" %></th>
+    <th><%= sort_link @search, :contact, "Contact" %></th>
+    <th>Export Runs</th>
+    <th>~Magnitude</th>
+    <th>Latest Export</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @data_sources.each do |data_source| %>
+      <tr>
+        <td><%= link_to data_source.name, data_source_path(data_source) %></td>
+        <td><%= data_source.active %></td>
+        <td><%= data_source.contact %></td>
+        <td><%= link_to data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => data_source.id}) if data_source.export_runs %>
+        <td><%= data_source.export_runs.last.record_count if data_source.export_runs.count > 0%>
+        <td><%= link_to(data_source.export_runs.last.started_at, data_source.export_runs.last) if data_source.export_runs.count > 0 %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<% if user_signed_in? %>
+    <% if current_user.has_role? :admin %>
+        <%= link_to "New", new_data_source_path, :class => 'btn btn-primary', :id => "New" %>
+    <% end %>
+<% end %>
+
+<%= paginate @data_sources %>

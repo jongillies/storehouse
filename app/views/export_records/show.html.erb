@@ -1,0 +1,48 @@
+<%- model_class = ExportRecord -%>
+<div class="page-header">
+  <h2><%= t '.title', :default => model_class.model_name.human.titleize %></h2>
+</div>
+
+<table class="table table-striped">
+
+  <tr>
+    <td><strong>Export Run:</strong></td>
+    <td><%= link_to @export_record.export_run.started_at, @export_record.export_run %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Data Source:</strong></td>
+    <td><%= link_to @export_record.data_source.name, @export_record.data_source %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:primary_key).titleize %>:</strong></td>
+    <td><%= @export_record.primary_key %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:checksum).titleize %>:</strong></td>
+    <td><%= link_to @export_record.checksum, @export_record.blob %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:location_pointer).titleize %>:</strong></td>
+    <td><%= @export_record.location_pointer %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:record_size).titleize %>:</strong></td>
+    <td><%= @export_record.record_size %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Data:</strong></td>
+    <td><pre class="prettyprint"><%= JSON.pretty_generate(JSON.parse(@export_record.blob.data)) %></pre></td>
+  </tr>
+
+</table>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              export_records_path, :class => 'btn' %>
+</div>

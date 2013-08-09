@@ -1,0 +1,40 @@
+<%- model_class = ExportRun -%>
+<div class="page-header">
+  <h2><%= t '.title', :default => model_class.model_name.human.titleize %></h2>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:started_at) %>:</strong></td>
+    <td><%= @export_run.started_at %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:finished_at) %>:</strong></td>
+    <td><%= @export_run.finished_at %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:duration) %>:</strong></td>
+    <td><%= duration(@export_run) %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:data_source_id) %>:</strong></td>
+    <td><%= link_to @export_run.data_source.name, data_source_path(@export_run.data_source) %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:export_record_id).titleize.pluralize %>:</strong></td>
+    <td><%= link_to @export_run.export_records.count, export_records_path(:q => {:export_run_id_eq => @export_run.id}, :params => {export_run_id: @export_run.id}) if @export_run.export_records %></td>
+  </tr>
+
+</table>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              export_runs_path, :class => 'btn' %>
+  <% if can? :destroy, @export_run %>
+      <%= link_to_export_run_destroy(@export_run) %>
+  <% end %>
+</div>

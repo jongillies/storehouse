@@ -1,0 +1,31 @@
+// Using https://github.com/maxim/bootswatch-rails
+//
+// Only import one of these:
+//
+//@import "bootswatch/amelia/variables";
+//@import "bootswatch/cerulean/variables";
+@import "bootswatch/cosmo/variables";
+//@import "bootswatch/cyborg/variables";
+//@import "bootswatch/journal/variables";
+//@import "bootswatch/readable/variables";
+//@import "bootswatch/simplex/variables";
+//@import "bootswatch/slate/variables";
+//@import "bootswatch/spacelab/variables";
+//@import "bootswatch/spruce/variables";
+//@import "bootswatch/superhero/variables";
+//@import "bootswatch/united/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// And finally bootswatch style itself
+@import "bootswatch/cerulean/bootswatch";
+
+// Whatever application styles you have go last
+//@import "base";

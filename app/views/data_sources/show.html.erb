@@ -1,0 +1,59 @@
+<%- model_class = DataSource -%>
+<div class="page-header">
+  <h2><%= t '.title', :default => model_class.model_name.human.titleize %></h2>
+</div>
+
+<table class="table table-striped">
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:name) %>:</strong></td>
+    <td><%= @data_source.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:description) %>:</strong></td>
+    <td><%= @data_source.description %></td>
+  </tr>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:active) %>:</strong></td>
+    <td><%= @data_source.active %></td>
+  </tr>
+  <tr>
+    <td><strong><%= model_class.human_attribute_name(:contact) %>:</strong></td>
+    <td><%= @data_source.contact %></td>
+  </tr>
+  <tr>
+    <td><strong><%= "Export Runs" %>:</strong></td>
+    <td><%= link_to @data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => @data_source.id}) if @data_source.export_runs %></td>
+  </tr>
+  <tr>
+    <td><strong>~Magnitude:</strong></td>
+    <td><%= @data_source.export_runs.last.record_count if @data_source.export_runs.count > 0 %></td>
+  </tr>
+  <tr>
+    <td><strong>Latest Export</strong></td>
+    <td><%= link_to(@data_source.export_runs.last.started_at, @data_source.export_runs.last) if @data_source.export_runs.count > 0 %></td>
+  </tr>
+
+  <% if user_signed_in? %>
+      <% if current_user.has_role? :admin %>
+          <tr>
+            <td><strong><%= model_class.human_attribute_name(:cron_schedule) %>:</strong></td>
+            <td><%= @data_source.cron_schedule %></td>
+          </tr>
+      <% end %>
+  <% end %>
+</table>
+
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              data_sources_path, :class => 'btn' %>
+  <% if can? :edit, @data_source %>
+      <%= link_to_data_source_edit(@data_source) %>
+  <% end %>
+  <% if can? :destroy, @data_source %>
+      <%= link_to_data_source_destroy(@data_source) %>
+  <% end %>
+
+</div>
