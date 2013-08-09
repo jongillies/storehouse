@@ -28,7 +28,7 @@
   </tr>
   <tr>
     <td><strong>~Magnitude:</strong></td>
-    <td><%= last_export_run_record_count(@data_source.id) %></td>
+    <td><%= @data_source.export_runs.last.record_count if @data_source.export_runs.count > 0 %></td>
   </tr>
   <tr>
     <td><strong>Latest Export</strong></td>
