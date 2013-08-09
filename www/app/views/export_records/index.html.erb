@@ -14,12 +14,12 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:primary_key).titleize %></th>
-    <th><%= model_class.human_attribute_name(:checksum).titleize %></th>
-    <th><%= model_class.human_attribute_name(:record_size).titleize %></th>
-    <th><%= model_class.human_attribute_name(:data_source_id).titleize %></th>
-    <th><%= model_class.human_attribute_name(:created_at).titleize %></th>
-  </tr>
+    <th><%= sort_link @search, :primary_key, model_class.human_attribute_name(:primary_key).titleize %></th>
+    <th><%= sort_link @search, :checksum, model_class.human_attribute_name(:checksum).titleize %></th>
+    <th><%= sort_link @search, :record_size, model_class.human_attribute_name(:record_size).titleize %></th>
+    <th><%= sort_link @search, :data_source_id, model_class.human_attribute_name(:data_source_id).titleize %></th>
+    <th><%= sort_link @search, :created_at, model_class.human_attribute_name(:created_at).titleize %></th>
+x`  </tr>
   </thead>
   <tbody>
   <% @export_records.each do |export_record| %>
