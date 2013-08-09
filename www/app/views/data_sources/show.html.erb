@@ -32,12 +32,8 @@
   </tr>
   <tr>
     <td><strong>Latest Export</strong></td>
-    <td><%= "#{@data_source.export_runs.last.started_at} (#{time_ago_in_words(@data_source.export_runs.last.started_at)})" if @data_source.export_runs.count > 0 %></td>
+    <td><%= link_to(@data_source.export_runs.last.started_at, @data_source.export_runs.last) if @data_source.export_runs.count > 0 %></td>
   </tr>
-
-
-
-
 
   <% if user_signed_in? %>
       <% if current_user.has_role? :admin %>

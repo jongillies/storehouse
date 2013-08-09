@@ -12,9 +12,4 @@ module DataSourcesHelper
             :data   => {:confirm => t('.confirm', :default => t('helpers.links.confirm', :default => 'Are you sure?'))},
             :class  => klass
   end
-
-  def last_export_run_record_count(data_source_id)
-    ExportRun.where(data_source_id: data_source_id).order('started_at DESC').limit(1).first.record_count
-  end
-  
 end

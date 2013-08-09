@@ -22,7 +22,7 @@
 
   <tr>
     <td><strong><%= model_class.human_attribute_name(:checksum).titleize %>:</strong></td>
-    <td><%= @export_record.checksum %></td>
+    <td><%= link_to @export_record.checksum, @export_record.blob %></td>
   </tr>
 
   <tr>
