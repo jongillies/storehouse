@@ -59,6 +59,8 @@ Each object in the export run will create an export record.  The export record h
 * Data Source Reference
 * Blob reference (Through checksum)
 
+### Blobs
+
 ## Usage
 
 ### Getting Data In

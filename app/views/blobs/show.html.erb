@@ -9,8 +9,17 @@
     <td><%= @blob.checksum %></td>
   </tr>
   <tr>
+    <td><strong>Data Sources:</strong></td><td>|
+    <% @blob.data_sources.uniq.each do |data_source| %>
+        <%= link_to(data_source.name, data_source) %> |
+    <% end %>
+    </td>
+  </tr>
+  <tr>
     <td><strong><%= model_class.human_attribute_name(:data) %>:</strong></td>
-    <td><pre class="prettyprint"><%= JSON.pretty_generate(JSON.parse(@blob.data)) %></pre></td>
+    <td>
+      <pre class="prettyprint"><%= JSON.pretty_generate(JSON.parse(@blob.data)) %></pre>
+    </td>
   </tr>
 </table>
 
