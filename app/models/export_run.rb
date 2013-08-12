@@ -15,9 +15,15 @@ class ExportRun < ActiveRecord::Base
 
   after_validation :validate_record
 
+  before_destroy :remove_dependent_export_records
+
   include RocketPants::Cacheable
 
   private
+
+  def remove_dependent_export_records
+    ExportRecord.delete_all(export_run_id: self.id)
+  end
 
   def update_duration
     unless finished_at.nil?
