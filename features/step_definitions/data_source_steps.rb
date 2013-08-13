@@ -2,7 +2,7 @@ require 'rest-client'
 
 def create_data_source
 
-  @ds1 ||= {:name => 'xy Data Source One',
+  @ds1 ||= {:name => 'Zippy Data Source One',
             :contact => 'user@example.com',
             :description => 'description',
             :active => true
@@ -10,7 +10,7 @@ def create_data_source
   @data_source_1 = FactoryGirl.create(:data_source, @ds1)
 
 
-  @ds2 ||= {:name => 'tx Data Source Two',
+  @ds2 ||= {:name => 'Zappy Data Source Two',
             :contact => 'user2@example.com',
             :description => 'description 2',
             :active => false
