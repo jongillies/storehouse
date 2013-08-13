@@ -17,6 +17,7 @@ Storehouse::Application.routes.draw do
   authenticated :user do
     root :to => 'data_sources#index'
   end
+
   root :to => 'data_sources#index'
 
 #  devise_for :users do

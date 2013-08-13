@@ -7,7 +7,7 @@
 
   <tr>
     <td><strong>Export Run:</strong></td>
-    <td><%= link_to @export_record.export_run.started_at, @export_record.export_run %></td>
+    <td><%= link_to format_date_time(@export_record.export_run.started_at), @export_record.export_run %></td>
   </tr>
 
   <tr>

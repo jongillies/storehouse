@@ -3,14 +3,15 @@
   <h3><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %></h3>
 <!--</div>-->
 
-Total: <span class="badge badge-inverse"><%= ExportRun.count %></span>
+Displaying <span class="badge"><%= @search.result.count %></span> of
+<span class="badge badge-inverse"><%= ExportRun.count %></span>
 
 <table class="table table-striped">
   <thead>
   <tr>
     <th><%= sort_link @search, :started_at, "Started At" %></th>
     <th><%= sort_link @search, :duration, "Duration" %></th>
-    <th><%= model_class.human_attribute_name(:data_source_id).titleize %></th>
+    <th><%= sort_link @search, :data_source_id, "Data Source" %></th>
     <th><%= 'Records' %></th>
     <th><%= sort_link @search, :created_at, "Created At" %></th>
 
@@ -19,11 +20,11 @@ Total: <span class="badge badge-inverse"><%= ExportRun.count %></span>
   <tbody>
   <% @export_runs.each do |export_run| %>
       <tr>
-        <td><%= link_to export_run.started_at, export_run_path(export_run) %></td>
+        <td><%= link_to format_date_time(export_run.started_at), export_run_path(export_run) %></td>
         <td><%= duration(export_run) %></td>
         <td><%= link_to export_run.data_source.name, data_source_path(export_run.data_source) %></td>
         <td><%= link_to export_run.export_records.count, export_records_path(:q => {:export_run_id_eq => export_run.id}, params: {export_run_id: export_run.id}) if export_run.export_records %>
-        <td><%= l export_run.created_at %></td>
+        <td><%= format_date_time export_run.created_at %></td>
       </tr>
   <% end %>
   </tbody>

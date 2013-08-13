@@ -31,7 +31,7 @@
         <td><%= data_source.contact %></td>
         <td><%= link_to data_source.export_runs.count, export_runs_path(:q => {:data_source_id_eq => data_source.id}) if data_source.export_runs %>
         <td><%= data_source.export_runs.last.record_count if data_source.export_runs.count > 0%>
-        <td><%= link_to(data_source.export_runs.last.started_at, data_source.export_runs.last) if data_source.export_runs.count > 0 %></td>
+        <td><%= link_to(format_date_time(data_source.export_runs.last.started_at), data_source.export_runs.last) if data_source.export_runs.count > 0 %></td>
       </tr>
   <% end %>
   </tbody>

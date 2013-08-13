@@ -12,4 +12,7 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def format_date_time(date_time)
+    date_time.to_s(:long)
+  end
 end

@@ -29,7 +29,7 @@
         <td><%= export_record.record_size %></td>
         <td><%= link_to export_record.data_source.name, export_record.data_source %></td>
 
-        <td><%= link_to export_record.created_at, export_record.export_run %></td>
+        <td><%= link_to format_date_time(export_record.created_at), export_record.export_run %></td>
       </tr>
   <% end %>
   </tbody>

@@ -6,12 +6,12 @@
 <table class="table table-striped">
   <tr>
     <td><strong><%= model_class.human_attribute_name(:started_at) %>:</strong></td>
-    <td><%= @export_run.started_at %></td>
+    <td><%= format_date_time @export_run.started_at %></td>
   </tr>
 
   <tr>
     <td><strong><%= model_class.human_attribute_name(:finished_at) %>:</strong></td>
-    <td><%= @export_run.finished_at %></td>
+    <td><%= format_date_time @export_run.finished_at %></td>
   </tr>
 
   <tr>

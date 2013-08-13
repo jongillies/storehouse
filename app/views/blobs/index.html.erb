@@ -15,9 +15,9 @@
   <thead>
   <tr>
     <th><%= model_class.human_attribute_name(:id) %></th>
-    <th>Data Sources</th>
+    <th>In Data Sources</th>
     <th><%= model_class.human_attribute_name(:data) %></th>
-    <th><%= model_class.human_attribute_name(:created_at) %></th>
+    <th><%= sort_link @search, :created_at, "Created At" %></th>
   </tr>
   </thead>
   <tbody>
@@ -26,7 +26,7 @@
         <td><%= link_to blob.id, blob_path(blob) %></td>
         <td><%= blob.data_sources.uniq.count %></td>
         <td><%= truncate blob.data %></td>
-        <td><%= l blob.created_at %></td>
+        <td><%= format_date_time blob.created_at %></td>
       </tr>
   <% end %>
   </tbody>

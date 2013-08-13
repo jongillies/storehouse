@@ -32,7 +32,7 @@
   </tr>
   <tr>
     <td><strong>Latest Export</strong></td>
-    <td><%= link_to(@data_source.export_runs.last.started_at, @data_source.export_runs.last) if @data_source.export_runs.count > 0 %></td>
+    <td><%= link_to(format_date_time(@data_source.export_runs.last.started_at), @data_source.export_runs.last) if @data_source.export_runs.count > 0 %></td>
   </tr>
 
   <% if user_signed_in? %>
