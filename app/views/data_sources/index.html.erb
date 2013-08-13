@@ -1,13 +1,13 @@
 <%- model_class = DataSource -%>
-<div class="page-header">
-  <h2><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %></h2>
-</div>
+<!--<div class="page-header">-->
+  <h3><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %></h3>
+<!--</div>-->
 
 <%= search_form_for @search, :html => {:class => "form-inline"} do |f| %>
     <%= f.text_field :name_or_contact_or_description_cont %>
     <%= f.submit "Search", :name => nil, :class => "btn" %>
     <%= f.submit "Clear", :name => nil, :class => "btn", :id => :q_reset %>
-    <span class="badge"><%= @search.result.count %></span> of
+    Displaying <span class="badge"><%= @search.result.count %></span> of
     <span class="badge badge-inverse"><%= DataSource.count %></span>
 
 <% end %>

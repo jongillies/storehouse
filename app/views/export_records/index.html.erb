@@ -1,13 +1,13 @@
 <%- model_class = ExportRecord -%>
-<div class="page-header">
-  <h2><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %> <%= "for #{@export_run.data_source.name} at #{@export_run.started_at}" if @export_run %> </h2>
-</div>
+<!--<div class="page-header">-->
+  <h3><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %> <%= "for #{@export_run.data_source.name} at #{@export_run.started_at}" if @export_run %> </h3>
+<!--</div>-->
 
 <%= search_form_for @search, :html => {:class => "form-inline"} do |f| %>
     <%= f.text_field :blob_data_or_checksum_or_primary_key_cont %>
     <%= f.submit "Search", :name => nil, :class => "btn" %>
     <%= f.submit "Clear", :name => nil, :class => "btn", :id => :q_reset %>
-    <span class="badge"><%= @search.result.count %></span> of
+    Displaying <span class="badge"><%= @search.result.count %></span> of
     <span class="badge badge-inverse"><%= ExportRecord.count %></span>
 <% end %>
 
