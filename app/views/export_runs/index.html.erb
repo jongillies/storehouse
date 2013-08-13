@@ -3,8 +3,7 @@
   <h3><%= t '.title', :default => model_class.model_name.human.titleize.pluralize %></h3>
 <!--</div>-->
 
-<span class="badge"><%= @search.result.count %></span> of
-<span class="badge badge-inverse"><%= ExportRun.count %></span>
+Total: <span class="badge badge-inverse"><%= ExportRun.count %></span>
 
 <table class="table table-striped">
   <thead>
