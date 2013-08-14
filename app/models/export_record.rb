@@ -2,25 +2,20 @@ class ExportRecord < ActiveRecord::Base
 
   belongs_to :export_run
   belongs_to :data_source
-
   belongs_to :blob, foreign_key: :checksum
+  accepts_nested_attributes_for :blob, update_only: true
 
   attr_accessible :record_size, :created_at, :checksum, :location_pointer, :primary_key, :export_run_id, :data_source_id
-
   attr_accessible :blob_attributes
 
   validates_presence_of :checksum, :primary_key
-
   validates :export_run, presence: true
   validates :data_source, presence: true
+  validates_uniqueness_of :checksum, :scope => [:export_run_id]
 
   after_validation :validate_record
 
-  validates_uniqueness_of :checksum, :scope => [:export_run_id]
-
   include RocketPants::Cacheable
-
-  accepts_nested_attributes_for :blob, update_only: true
 
   def as_json(options={})
     {:record_size => self.record_size,
@@ -38,7 +33,6 @@ class ExportRecord < ActiveRecord::Base
     if Blob.find_by_checksum(self.checksum)
       self.blob = nil
     end
-
   end
 
   def validate_record
@@ -49,7 +43,6 @@ class ExportRecord < ActiveRecord::Base
     unless my_export_run.finished_at.nil?
       errors.add(:export_run_id, 'this export run has already been completed.')
     end
-
   end
 
 end

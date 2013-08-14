@@ -6,16 +6,13 @@ class ExportRun < ActiveRecord::Base
   has_many :export_records, dependent: :destroy
 
   before_save :update_duration
-
   before_create :set_started_at
+  after_validation :validate_record
+  before_destroy :remove_dependent_export_records
 
   validates :data_source, presence: true, on: :create
   validates :finished_at, presence: true, on: :update
   validates :record_count, presence: true, on: :update
-
-  after_validation :validate_record
-
-  before_destroy :remove_dependent_export_records
 
   include RocketPants::Cacheable
 
