@@ -3,7 +3,7 @@ module ApplicationHelper
   def display_base_errors resource
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join
-    html = <<-HTML
+    html     = <<-HTML
     <div class="alert alert-error alert-block">
       <button type="button" class="close" data-dismiss="alert">&#215;</button>
       #{messages}
@@ -13,6 +13,11 @@ module ApplicationHelper
   end
 
   def format_date_time(date_time)
-    date_time.to_s(:long)
+    begin
+      date_time.to_s(:long)
+    rescue
+      ''
+    end
+
   end
 end
