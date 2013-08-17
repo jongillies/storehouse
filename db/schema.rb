@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816162402) do
+ActiveRecord::Schema.define(:version => 20130817002008) do
 
   create_table "blobs", :force => true do |t|
     t.string   "checksum",                         :null => false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20130816162402) do
   end
 
   add_index "export_records", ["checksum"], :name => "index_export_records_on_checksum"
+  add_index "export_records", ["data_source_id"], :name => "index_export_records_on_data_source_id"
+  add_index "export_records", ["export_run_id"], :name => "index_export_records_on_export_run_id"
   add_index "export_records", ["location_pointer"], :name => "index_export_records_on_location_pointer"
   add_index "export_records", ["primary_key"], :name => "index_export_records_on_primary_key"
 
