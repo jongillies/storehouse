@@ -6,6 +6,7 @@
 |  |  Blob index does not show correct "in data sources", show does work
 |  |  Add created_at in show view of blobs
 |  |  How do you search for a specific thing withing a data source or an export run?
+|  |  How do you search withing a result set?
 | X |  ExportRecord should link back to it's ExportRun |
 | X |  On data_sources#index, include column of latest export record count |
 
