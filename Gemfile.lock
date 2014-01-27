@@ -132,7 +132,7 @@ GEM
     multi_json (1.7.9)
     multi_test (0.0.2)
     multi_xml (0.5.5)
-    mysql2 (0.3.13)
+    mysql2 (0.3.14)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     object_regex (1.0.1)
