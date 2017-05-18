@@ -1,8 +1,9 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.22'
 gem 'mysql2', '= 0.3.18'
 gem 'rake', '= 10.4.2'
+gem 'semver'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

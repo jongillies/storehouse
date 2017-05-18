@@ -1,6 +1,6 @@
 # === 1 ===
 FROM phusion/passenger-ruby19:0.9.17
-MAINTAINER Jon Gillies <jgillies@skytouchtechnology.com>
+MAINTAINER Jon Gillies <supercoder@gmail.com>
 
 # Set correct environment variables.
 ENV HOME /root
