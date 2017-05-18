@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'mysql2', '= 0.3.11'
+gem 'mysql2', '= 0.3.20'
+
+gem 'rake', '< 11.0'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
