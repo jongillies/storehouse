@@ -80,6 +80,7 @@
   location_pointer: https://tk421.s3.amazonaws.com/7448d8798a4380162d4b56f9b452e2f6f9e24e7a
   blob_attributes:
     checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
+    data: test 01
 - id: 9
   record_size: 100
   primary_key: "3"
