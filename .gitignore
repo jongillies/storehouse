@@ -2,7 +2,6 @@
 .idea
 *.rbc
 .bundle
-.config
 .DS_Store
 coverage
 db/test.sqlite3

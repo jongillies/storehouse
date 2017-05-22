@@ -1,5 +1,5 @@
 # === 1 ===
-FROM phusion/passenger-ruby19:0.9.17
+FROM phusion/passenger-ruby20:0.9.17
 MAINTAINER Jon Gillies <supercoder@gmail.com>
 
 # Set correct environment variables.
