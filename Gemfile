@@ -56,4 +56,5 @@ gem 'bootswatch-rails', '= 0.4.0'
 
 gem 'rocket_pants'
 #gem 'will_paginate'
+gem 'rails_12factor', group: :production
 

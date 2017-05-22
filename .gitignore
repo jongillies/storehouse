@@ -3,6 +3,7 @@
 *.rbc
 .bundle
 .DS_Store
+.bundle
 coverage
 db/test.sqlite3
 InstalledFiles
