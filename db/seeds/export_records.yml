@@ -9,7 +9,6 @@
     checksum: e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e
     data:
       value: data_one
-      id: 1
 - id: 2
   record_size: 100
   primary_key: "2"
@@ -21,7 +20,6 @@
     checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
     data:
       value: data_two
-      id: 2
 - id: 3
   record_size: 100
   primary_key: "3"
@@ -42,7 +40,6 @@
   blob_attributes:
     data:
       value: data_one
-      id: 1
 - id: 5
   record_size: 100
   primary_key: "1"
@@ -54,7 +51,6 @@
     checksum: 5d9474c0309b7ca09a182d888f73b37a8fe1362c
     data:
       value: data_four
-      id: 4
 - id: 6
   record_size: 100
   primary_key: "One"
@@ -65,7 +61,6 @@
   blob_attributes:
     data:
       value: data_one
-      id: 1
 - id: 7
   record_size: 100
   primary_key: "1"
@@ -76,7 +71,6 @@
   blob_attributes:
     data:
       value: data_one
-      id: 1
 - id: 8
   record_size: 100
   primary_key: "2"
@@ -86,7 +80,6 @@
   location_pointer: https://tk421.s3.amazonaws.com/7448d8798a4380162d4b56f9b452e2f6f9e24e7a
   blob_attributes:
     checksum: 7448d8798a4380162d4b56f9b452e2f6f9e24e7a
-    data: 5
 - id: 9
   record_size: 100
   primary_key: "3"

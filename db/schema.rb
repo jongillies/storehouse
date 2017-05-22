@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130817002008) do
 
-  create_table "blobs", :force => true do |t|
+  create_table "blobs", :id => false, :force => true do |t|
     t.string   "checksum",                         :null => false
     t.text     "data",       :limit => 2147483647
     t.datetime "created_at",                       :null => false

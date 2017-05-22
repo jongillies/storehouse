@@ -1,12 +1,18 @@
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: storehouse_development
+  adapter: postgresql
+  encoding: unicode
+  database: storehouse
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: storehouse
+  password: password
+#  adapter: mysql2
+#  encoding: utf8
+#  reconnect: false
+#  database: storehouse_development
+#  pool: 5
+#  username: root
+#  password:
+#  socket: /tmp/mysql.sock
 
 test: &test
   adapter: sqlite3
