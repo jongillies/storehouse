@@ -20,13 +20,13 @@ test: &test
   pool: 5
   timeout: 5000
 
-production:
-  adapter: mysql2
-  host: <%= ENV['APP_DB_HOST'] %>
-  port: <%= ENV['APP_DB_PORT'] || "3306" %>
-  database: <%= ENV['APP_DB_DATABASE'] %>
-  username: <%= ENV['APP_DB_USERNAME'] %>
-  password: <%= ENV['APP_DB_PASSWORD'] %>
+#production:
+#  adapter: mysql2
+#  host: <%= ENV['APP_DB_HOST'] %>
+#  port: <%= ENV['APP_DB_PORT'] || "3306" %>
+#  database: <%= ENV['APP_DB_DATABASE'] %>
+#  username: <%= ENV['APP_DB_USERNAME'] %>
+#  password: <%= ENV['APP_DB_PASSWORD'] %>
 
 cucumber:
   <<: *test
