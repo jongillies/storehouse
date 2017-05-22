@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(:version => 20130817002008) do
 
   create_table "blobs", :id => false, :force => true do |t|
-    t.string   "checksum",                         :null => false
-    t.text     "data",       :limit => 2147483647
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.string   "checksum",   :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "blobs", ["checksum"], :name => "index_blobs_on_checksum", :unique => true
