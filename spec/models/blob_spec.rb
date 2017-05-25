@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'blob' do
+describe Blob do
 
   before(:each) do
     @export_record = {
@@ -13,10 +13,10 @@ describe 'blob' do
     Blob.create!(@export_record)
   end
 
-  # it 'should fail when trying to create a blog with the same checksum' do
-  #   Blob.create!(@export_record)
-  #   lambda { Blob.create!(@export_record) }.should raise_error(ActiveRecord::RecordNotUnique)
-  # end
+  it 'should fail when trying to create a blog with the same checksum' do
+    Blob.create!(@export_record)
+    lambda { Blob.create!(@export_record) }.should raise_error(ActiveRecord::StatementInvalid)
+  end
 
   it 'should fail when there is no checksum' do
     lambda { Blob.create!({ data: 'my_data'}) }.should raise_error(ActiveRecord::RecordInvalid)
@@ -26,6 +26,7 @@ describe 'blob' do
     lambda { Blob.create!({ }) }.should raise_error(ActiveRecord::RecordInvalid)
   end
 
+  # Old test.. should not be able to store binary data
   # it 'should accept binary data' do
   #   Blob.create!( checksum: '00000', data: "\xfe\xff\xfe\xff")
   # end
