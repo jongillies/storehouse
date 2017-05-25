@@ -12,6 +12,8 @@ group :assets do
   gem 'uglifier', '= 1.0.3'
 end
 
+gem 'libv8', '= 3.16.14.19'
+
 group :test do
   gem 'database_cleaner', '= 1.0.1'
   gem 'sqlite3', :group => [:test]
