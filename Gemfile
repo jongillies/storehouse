@@ -19,7 +19,7 @@ group :test do
   gem 'cucumber-rails', '= 1.3.1', :require => false
   gem 'launchy', '= 2.2.0'
   gem 'capybara', '= 2.0.3'
-  gem 'simplecov', :require => false
+  # gem 'simplecov', :require => false
 end
 
 group :development do
@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rest-client', '= 1.6.7'
   gem 'factory_girl_rails', '= 4.2.0'
   gem 'json_spec', '= 1.1.1'
+  gem 'test-unit', '~> 3.0'
 end
 
 gem 'jquery-rails', '= 2.2.1'
